@@ -19,6 +19,26 @@ require("lazy").setup({
         dependencies = { "nvim-lua/plenary.nvim" },
     },
 
+    -- null-ls
+    {
+        "nvimtools/none-ls.nvim",
+        lazy = false,
+        ft = { "python" },
+        opts = function()
+            return require "caplox.configs.null-ls"
+        end,
+    },
+
+    {
+        "nvimtools/none-ls.nvim",
+        ft = { "cpp" },
+        event = "VeryLazy",
+        opts = function()
+            return require "caplox.configs.null-ls"
+        end,
+    },
+
+
     -- Tokyonight theme
     {
         "folke/tokyonight.nvim",
@@ -48,17 +68,29 @@ require("lazy").setup({
     -- Mason
     {
         "williamboman/mason.nvim",
-        lazy = false,
         opts = {
             ensure_installed = {
+                "pyright",
                 "mypy",
-                "clangd",
-                "stylua",
                 "black",
+                "ruff",
+                "clangd",
                 "clang-format",
+                "stylua",
                 "beautysh",
             },
         },
+
+        -- MasonInstallAll cmd
+        config = function(_, opts)
+            require("mason").setup(opts)
+
+            vim.api.nvim_create_user_command("MasonInstallAll", function()
+                if opts.ensure_installed and #opts.ensure_installed > 0 then
+                    vim.cmd("MasonInstall " .. table.concat(opts.ensure_installed, " "))
+                end
+            end, {})
+        end,
     },
 
     -- Mason requirements
@@ -72,81 +104,21 @@ require("lazy").setup({
     {
         "neovim/nvim-lspconfig",
         lazy = true,
-    },
-
-    -- Mason auto installer
-    {
-        "WhoIsSethDaniel/mason-tool-installer.nvim",
-        opts = {
-            ensure_installed = {
-                "mypy",
-                "clangd",
-                "stylua",
-                "black",
-                "clang-format",
-                "beautysh",
-            },
-        },
-    },
-
-    -- Linting
-    {
-        "mfussenegger/nvim-lint",
-        event = {
-            "BufReadPre",
-            "BufNewFile",
-        },
         config = function()
-            local lint = require("lint")
-
-            -- Linters
-            lint.linters_by_ft = {
-                python = { "mypy" },
-                -- cpp = { "clangd" },
-            }
-
-            -- Auto function
-            local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
-
-            vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
-                group = lint_augroup,
-                callback = function()
-                    lint.try_lint()
-                end,
-            })
-        end,
+            require("caplox.configs.lspconfig")
+        end
     },
 
-    -- Formatting
-    {
-        "stevearc/conform.nvim",
-        lazy = false,
-        config = function()
-            local conform = require("conform")
-
-            conform.setup({
-                formatters_by_ft = {
-                    lua = { "stylua" },
-                    python = { "black" },
-                    cpp = { "clang-format" },
-                    bash = { "beautysh" },
-                },
-            })
-
-            -- Keybind format
-            vim.keymap.set({ "n", "v" }, "<leader>ll", function()
-                conform.format({
-                    lsp_fallback = true,
-                    async = false,
-                    timeout_ms = 500,
-                })
-            end, { desc = "Format file" })
-        end,
-    },
-
-    -- lsp helper
+    -- autocomplete
     {
         "hrsh7th/nvim-cmp",
-        lazy = false,
-    }
+    },
+    {
+        "hrsh7th/cmp-nvim-lsp",
+    },
+
+    -- Snippet Engine
+    {
+        "L3MON4D3/LuaSnip",
+    },
 })
