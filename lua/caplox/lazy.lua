@@ -120,7 +120,7 @@ require("lazy").setup({
     -- Formatting
     {
         "stevearc/conform.nvim",
-        event = { "BufReadPre", "BufNewFile", "BufWritePost" },
+        lazy = false,
         config = function()
             local conform = require("conform")
 
@@ -143,4 +143,10 @@ require("lazy").setup({
             end, { desc = "Format file" })
         end,
     },
+
+    -- lsp helper
+    {
+        "hrsh7th/nvim-cmp",
+        lazy = false,
+    }
 })
