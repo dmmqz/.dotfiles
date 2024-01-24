@@ -10,3 +10,6 @@ vim.cmd[[colorscheme tokyonight]]
 -- Relative line number
 vim.opt.number = true
 vim.opt.relativenumber = true
+
+-- Format on save
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
