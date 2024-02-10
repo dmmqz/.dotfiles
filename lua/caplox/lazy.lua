@@ -19,25 +19,6 @@ require("lazy").setup({
         dependencies = { "nvim-lua/plenary.nvim" },
     },
 
-    -- null-ls
-    {
-        "nvimtools/none-ls.nvim",
-        lazy = false,
-        ft = { "python" },
-        opts = function()
-            return require "caplox.configs.null-ls"
-        end,
-    },
-
-    {
-        "nvimtools/none-ls.nvim",
-        ft = { "cpp" },
-        event = "VeryLazy",
-        opts = function()
-            return require "caplox.configs.null-ls"
-        end,
-    },
-
 
     -- Tokyonight theme
     {
@@ -59,66 +40,31 @@ require("lazy").setup({
     -- Treesitter
     {
         "nvim-treesitter/nvim-treesitter",
+        lazy = false,
         highlight = {
-            -- enable = true,
+            enable = true,
         },
-        lazy = true,
-    },
-
-    -- Mason
-    {
-        "williamboman/mason.nvim",
-        opts = {
-            ensure_installed = {
-                "pyright",
-                "mypy",
-                "black",
-                "ruff",
-                "clangd",
-                "clang-format",
-                "stylua",
-                "beautysh",
-            },
+        ensure_installed = {
+            "python",
+            "cpp",
+            "lua",
         },
-
-        -- MasonInstallAll cmd
-        config = function(_, opts)
-            require("mason").setup(opts)
-
-            vim.api.nvim_create_user_command("MasonInstallAll", function()
-                if opts.ensure_installed and #opts.ensure_installed > 0 then
-                    vim.cmd("MasonInstall " .. table.concat(opts.ensure_installed, " "))
-                end
-            end, {})
-        end,
+        auto_install = true,
+        additional_vim_regex_highlighting = false,
     },
 
-    -- Mason requirements
-    -- mason-lspconfig
-    {
-        "williamboman/mason-lspconfig.nvim",
-        lazy = true,
-    },
-
-    -- lspconfig
-    {
-        "neovim/nvim-lspconfig",
-        lazy = true,
-        config = function()
-            require("caplox.configs.lspconfig")
-        end
-    },
-
-    -- autocomplete
-    {
-        "hrsh7th/nvim-cmp",
-    },
-    {
-        "hrsh7th/cmp-nvim-lsp",
-    },
-
-    -- Snippet Engine
-    {
-        "L3MON4D3/LuaSnip",
-    },
+    -- LSP
+    {"neovim/nvim-lspconfig"},
+    {"williamboman/mason.nvim"},
+    {"williamboman/mason-lspconfig.nvim"},
+    {"hrsh7th/nvim-cmp"},
+    {"hrsh7th/cmp-nvim-lsp"},
+    {"hrsh7th/cmp-buffer"},
+    {"hrsh7th/cmp-path"},
+    {"saadparwaiz1/cmp_luasnip"},
+    {"hrsh7th/cmp-nvim-lua"},
+    {"L3MON4D3/LuaSnip"},
+    {"rafamadriz/friendly-snippets"},
+    
+    {"VonHeikemen/lsp-zero.nvim", branch = "v3.x"},
 })

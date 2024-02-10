@@ -1,4 +1,5 @@
 require("caplox.lazy")
 require("caplox.mappings")
 require("caplox.settings")
-require("caplox.completions")
+require("caplox.configs.lsp")
+-- require("caplox.completions")

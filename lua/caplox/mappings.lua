@@ -1,6 +1,7 @@
 -- default keybinds
 vim.g.mapleader = " "  -- <Leader> keybind
 vim.keymap.set("n", "<C-n>", vim.cmd.Ex)
+vim.keymap.set("n", ";", ":")
 
 -- Telescope (fuzzy finder) keybinds
 vim.keymap.set('n', '<leader>ff', require("telescope.builtin").find_files, {})
