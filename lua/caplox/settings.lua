@@ -5,7 +5,7 @@ vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 
 -- Theme
-vim.cmd[[colorscheme tokyonight]]
+vim.cmd [[colorscheme tokyonight]]
 
 -- Relative line number
 vim.opt.number = true

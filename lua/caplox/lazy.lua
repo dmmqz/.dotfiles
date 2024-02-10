@@ -68,8 +68,15 @@ require("lazy").setup({
     { "VonHeikemen/lsp-zero.nvim",        branch = "v3.x" },
 
     -- Vim fugitive, git
+    { "tpope/vim-fugitive" },
+
+    -- Commentary for easier commenting
+    { "tpope/vim-commentary" },
+
+    -- Autopair braces etc
     {
-        "tpope/vim-fugitive",
-        lazy = false,
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        opts = {},
     },
 })
