@@ -88,4 +88,6 @@ require("lazy").setup({
 
     -- None-ls, formatting for python
     { "nvimtools/none-ls.nvim" },
+
+    { "github/copilot.vim" },
 })
