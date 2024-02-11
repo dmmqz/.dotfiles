@@ -79,4 +79,13 @@ require("lazy").setup({
         event = "InsertEnter",
         opts = {},
     },
+
+    -- LaTeX compiler
+    {
+        "lervag/vimtex",
+        ft = { "tex", "plaintex" },
+    },
+
+    -- None-ls, formatting for python
+    { "nvimtools/none-ls.nvim" },
 })
