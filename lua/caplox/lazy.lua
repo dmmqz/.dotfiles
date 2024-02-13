@@ -101,8 +101,6 @@ require("lazy").setup({
     {
         "rcarriga/nvim-dap-ui",
         config = function(_, opts)
-            -- setup dap config by VsCode launch.json file
-            -- require("dap.ext.vscode").load_launchjs()
             local dap = require("dap")
             local dapui = require("dapui")
             dapui.setup(opts)
@@ -117,4 +115,7 @@ require("lazy").setup({
             end
         end,
     },
+
+    -- Oil, a netrw like file explorer
+    { "stevearc/oil.nvim" },
 })
