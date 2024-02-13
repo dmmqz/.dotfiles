@@ -3,6 +3,13 @@ vim.g.mapleader = " " -- <Leader> keybind
 vim.keymap.set("n", "<C-n>", vim.cmd.Ex)
 vim.keymap.set("n", ";", ":")
 
+-- Window navigation
+vim.keymap.set("n", "<C-h>", "<C-w>h")
+vim.keymap.set("n", "<C-j>", "<C-w>j")
+vim.keymap.set("n", "<C-k>", "<C-w>k")
+vim.keymap.set("n", "<C-l>", "<C-w>l")
+
+-- Plugins
 -- Telescope (fuzzy finder) keybinds
 vim.keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, {})
 vim.keymap.set("n", "<leader>fg", require("telescope.builtin").live_grep, {})
