@@ -55,7 +55,7 @@ require("lazy").setup({
 
     -- LSP
     { "neovim/nvim-lspconfig" },
-    { "williamboman/mason.nvim" },
+    { "williamboman/mason.nvim", },
     { "williamboman/mason-lspconfig.nvim" },
     { "hrsh7th/nvim-cmp" },
     { "hrsh7th/cmp-nvim-lsp" },
@@ -89,5 +89,9 @@ require("lazy").setup({
     -- None-ls, formatting for python
     { "nvimtools/none-ls.nvim" },
 
+    -- GitHub Copilot
     { "github/copilot.vim" },
+
+    -- Mason Auto-Installer
+    { "WhoIsSethDaniel/mason-tool-installer.nvim" },
 })
