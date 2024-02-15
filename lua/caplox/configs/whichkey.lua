@@ -24,6 +24,7 @@ wk.register({
             l = { "Log" },
             o = { "Overview" },
             p = { "Pull" },
+            u = { "Unstage All" },
         },
         l = {
             name = "LaTeX",

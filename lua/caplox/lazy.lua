@@ -67,8 +67,14 @@ require("lazy").setup({
     { "rafamadriz/friendly-snippets" },
     { "VonHeikemen/lsp-zero.nvim",        branch = "v3.x" },
 
-    -- Vim fugitive, git
+    -- Vim fugitive and Gitsigns for git
     { "tpope/vim-fugitive" },
+    {
+        "lewis6991/gitsigns.nvim",
+        config = function()
+            require("gitsigns").setup()
+        end,
+    },
 
     -- Commentary for easier commenting
     { "tpope/vim-commentary" },
@@ -117,7 +123,12 @@ require("lazy").setup({
     },
 
     -- Oil, a netrw like file explorer
-    { "stevearc/oil.nvim" },
+    {
+        "stevearc/oil.nvim",
+        config = function()
+            require("oil").setup({})
+        end,
+    },
 
     -- Whichkey
     {
