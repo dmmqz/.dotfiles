@@ -18,8 +18,17 @@ vim.keymap.set("n", "<leader>fg", require("telescope.builtin").live_grep, {})
 
 -- Commentary (comments) keybinds
 vim.keymap.set("n", "<Leader>/", vim.cmd.Commentary)
-vim.api.nvim_set_keymap('x', '<Leader>/', '<Plug>Commentary', {})
+vim.api.nvim_set_keymap("x", "<Leader>/", "<Plug>Commentary", {})
 
 -- Vimtex (LaTeX) keybinds
 vim.keymap.set("n", "<leader>ll", ":VimtexCompile<CR>")
 vim.keymap.set("n", "<leader>le", ":VimtexErrors<CR>")
+
+-- Git (fugitive)
+vim.keymap.set("n", "<leader>ga", ":Git add ")
+vim.keymap.set("n", "<leader>gb", ":Git blame<CR>")
+vim.keymap.set("n", "<leader>gc", ":Git commit -m ")
+vim.keymap.set("n", "<leader>gd", ":Git diff<CR>")
+vim.keymap.set("n", "<leader>gl", ":Git log<CR>")
+vim.keymap.set("n", "<leader>go", ":Git<CR>")
+vim.keymap.set("n", "<leader>gp", ":Git pull<CR>")

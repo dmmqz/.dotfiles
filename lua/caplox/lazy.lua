@@ -118,4 +118,14 @@ require("lazy").setup({
 
     -- Oil, a netrw like file explorer
     { "stevearc/oil.nvim" },
+
+    -- Whichkey
+    {
+        "folke/which-key.nvim",
+        event = "VeryLazy",
+        init = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+        end,
+    },
 })

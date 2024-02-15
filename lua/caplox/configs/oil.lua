@@ -1,5 +1,1 @@
-require("oil").setup({
-    keymaps = {
-        [".."] = "actions.parent",
-    },
-})
+require("oil").setup({})
