@@ -33,3 +33,7 @@ vim.keymap.set("n", "<leader>gl", ":Git log<CR>")
 vim.keymap.set("n", "<leader>go", ":Git<CR>")
 vim.keymap.set("n", "<leader>gp", ":Git pull<CR>")
 vim.keymap.set("n", "<leader>gu", ":Git reset<CR>")
+
+-- Copilot
+vim.keymap.set("n", "<leader>cd", ":Copilot disable<CR>")
+vim.keymap.set("n", "<leader>ce", ":Copilot enable<CR>")

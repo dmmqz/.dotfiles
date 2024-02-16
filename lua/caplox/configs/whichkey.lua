@@ -2,6 +2,11 @@ local wk = require("which-key")
 
 wk.register({
     ["<Leader>"] = {
+        c = {
+            name = "Copilot",
+            d = { "Disable" },
+            e = { "Enable" },
+        },
         d = {
             name = "Debug",
             b = { "Toggle Breakpoint" },
@@ -9,6 +14,7 @@ wk.register({
             n = { "Step Over" },
             o = { "Step Out" },
             t = { "Toggle Debugger" },
+            q = { "Quit" },
         },
         f = {
             name = "Telescope",
