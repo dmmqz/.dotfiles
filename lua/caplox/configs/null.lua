@@ -12,5 +12,14 @@ null_ls.setup({
     end,
     sources = {
         null_ls.builtins.formatting.black,
-    }
+        null_ls.builtins.formatting.beautysh.with({
+            command = "beautysh",
+            args = {
+                "--indent-size",
+                "4", -- Set indent size here
+                "$FILENAME",
+            },
+        }),
+        null_ls.builtins.diagnostics.shellcheck,
+    },
 })
