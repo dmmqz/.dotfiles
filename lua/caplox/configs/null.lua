@@ -19,6 +19,7 @@ null_ls.setup({
                 "--output-format=json",
                 "$FILENAME"
             },
+
         }),
         null_ls.builtins.formatting.beautysh.with({
             command = "beautysh",
@@ -30,4 +31,11 @@ null_ls.setup({
         }),
         null_ls.builtins.diagnostics.shellcheck,
     },
+    diagnostics_format = "#{m} [#{c}]",
+    diagnostics_postprocess = function(_, _, diagnostics)
+        for _, diagnostic in ipairs(diagnostics) do
+            diagnostic.code = diagnostic.message_id
+        end
+        return diagnostics
+    end,
 })
