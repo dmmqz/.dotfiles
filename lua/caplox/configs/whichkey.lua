@@ -38,6 +38,8 @@ wk.register({
             l = { "Compile" },
         },
         ["/"] = { "Comment" },
+        ["p"] = { "Paste to Clipboard" },
+        ["y"] = { "Yank to Clipboard" },
     },
     [";"] = { "Command Mode" },
     ["<C-n>"] = { "Open Parent Directory" },

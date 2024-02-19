@@ -10,3 +10,6 @@ vim.opt.relativenumber = true
 
 -- Format on save
 vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+
+-- Enable clipboard
+vim.cmd [[set clipboard+=unnamedplus]]
