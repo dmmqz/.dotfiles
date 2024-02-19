@@ -12,6 +12,14 @@ null_ls.setup({
     end,
     sources = {
         null_ls.builtins.formatting.black,
+        null_ls.builtins.diagnostics.pylint.with({
+            command = "pylint",
+            args = {
+                "--disable=F0401", -- Ignore import errors, as they are handled by the language server
+                "--output-format=json",
+                "$FILENAME"
+            },
+        }),
         null_ls.builtins.formatting.beautysh.with({
             command = "beautysh",
             args = {
