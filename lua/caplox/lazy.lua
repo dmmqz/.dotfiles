@@ -41,16 +41,22 @@ require("lazy").setup({
     {
         "nvim-treesitter/nvim-treesitter",
         lazy = false,
-        highlight = {
-            enable = true,
-        },
-        ensure_installed = {
-            "python",
-            "cpp",
-            "lua",
-        },
-        auto_install = true,
-        additional_vim_regex_highlighting = false,
+        config = function()
+            require("nvim-treesitter.configs").setup({
+                highlight = {
+                    enable = true,
+                },
+                ensure_installed = {
+                    "python",
+                    "cpp",
+                    "lua",
+                    "bash",
+                    "latex",
+                },
+                auto_install = true,
+                additional_vim_regex_highlighting = false,
+            })
+        end,
     },
 
     -- LSP
