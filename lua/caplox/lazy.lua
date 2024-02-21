@@ -51,6 +51,8 @@ require("lazy").setup({
                     "cpp",
                     "lua",
                     "bash",
+                },
+                ignore_install = {
                     "latex",
                 },
                 auto_install = true,
