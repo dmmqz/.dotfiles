@@ -160,8 +160,9 @@ require("lazy").setup({
         end,
     },
 
-    -- nvim icons
+    -- Haskell tools
     {
-        "echasnovski/mini.icons", version = false
-    },
+        "MrcJkb/haskell-tools.nvim",
+        version = '^4', -- Recommended
+    }
 })

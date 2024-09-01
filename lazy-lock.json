@@ -8,6 +8,7 @@
   "copilot.vim": { "branch": "release", "commit": "782461159655b259cff10ecff05efa761e3d4764" },
   "friendly-snippets": { "branch": "main", "commit": "00ebcaa159e817150bd83bfe2d51fa3b3377d5c4" },
   "gitsigns.nvim": { "branch": "main", "commit": "899e993850084ea33d001ec229d237bc020c19ae" },
+  "haskell-tools.nvim": { "branch": "master", "commit": "620a624bee6e8c3c8e7e412501dc3e52efec5138" },
   "lazy.nvim": { "branch": "main", "commit": "48b52b5cfcf8f88ed0aff8fde573a5cc20b1306d" },
   "lsp-zero.nvim": { "branch": "v3.x", "commit": "56db3d5ce5476b183783160e6045f7337ba12b83" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "482350b050bd413931c2cdd4857443c3da7d57cb" },

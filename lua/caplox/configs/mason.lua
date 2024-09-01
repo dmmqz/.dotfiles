@@ -4,6 +4,7 @@ require("mason-tool-installer").setup {
         "black",    -- Python formatter
         "pylint",   -- Python linter
         "codelldb", -- C++ debugger
+        "hls",      -- Haskell language server
     },
     auto_update = true,
 }
