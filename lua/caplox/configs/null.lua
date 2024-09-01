@@ -19,17 +19,7 @@ null_ls.setup({
                 "--output-format=json",
                 "$FILENAME"
             },
-
         }),
-        null_ls.builtins.formatting.beautysh.with({
-            command = "beautysh",
-            args = {
-                "--indent-size",
-                "4", -- Set indent size here
-                "$FILENAME",
-            },
-        }),
-        null_ls.builtins.diagnostics.shellcheck,
     },
     diagnostics_format = "#{m} [#{c}]",
     diagnostics_postprocess = function(_, _, diagnostics)

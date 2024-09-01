@@ -117,6 +117,7 @@ require("lazy").setup({
     { "jay-babu/mason-nvim-dap.nvim" },
     {
         "rcarriga/nvim-dap-ui",
+        dependencies = { "https://github.com/nvim-neotest/nvim-nio" },
         config = function(_, opts)
             local dap = require("dap")
             local dapui = require("dapui")
@@ -132,7 +133,7 @@ require("lazy").setup({
         "stevearc/oil.nvim",
         config = function()
             require("oil").setup({
-                default_file_explorer = false,
+                default_file_explorer = true,
             })
         end,
     },
@@ -140,6 +141,10 @@ require("lazy").setup({
     -- Whichkey
     {
         "folke/which-key.nvim",
+        dependencies = {
+            "echasnovski/mini.icons",
+            "nvim-tree/nvim-web-devicons",
+        },
         event = "VeryLazy",
         init = function()
             vim.o.timeout = true
@@ -153,5 +158,10 @@ require("lazy").setup({
         config = function()
             require("colorizer").setup()
         end,
+    },
+
+    -- nvim icons
+    {
+        "echasnovski/mini.icons", version = false
     },
 })
