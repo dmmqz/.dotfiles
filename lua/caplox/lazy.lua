@@ -31,12 +31,6 @@ require("lazy").setup({
         opts = {},
     },
 
-    -- VimBeGood
-    {
-        "ThePrimeagen/vim-be-good",
-        event = "VeryLazy",
-    },
-
     -- Treesitter
     {
         "nvim-treesitter/nvim-treesitter",
@@ -50,7 +44,6 @@ require("lazy").setup({
                     "python",
                     "cpp",
                     "lua",
-                    "bash",
                 },
                 ignore_install = {
                     "latex",
@@ -85,7 +78,7 @@ require("lazy").setup({
     },
 
     -- Commentary for easier commenting
-    { "tpope/vim-commentary" },
+    { "tpope/vim-commentary", },
 
     -- Autopair braces etc
     {
@@ -104,10 +97,7 @@ require("lazy").setup({
     },
 
     -- None-ls, formatting for python
-    { "nvimtools/none-ls.nvim" },
-
-    -- GitHub Copilot
-    { "github/copilot.vim" },
+    { "nvimtools/none-ls.nvim", },
 
     -- Mason Auto-Installer
     { "WhoIsSethDaniel/mason-tool-installer.nvim" },
