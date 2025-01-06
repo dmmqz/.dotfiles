@@ -17,8 +17,10 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.opt.number = true
 vim.opt.relativenumber = true
 
--- Format on save
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+-- Format on save (except Haskell)
+vim.cmd([[
+  autocmd BufWritePre * lua if not vim.tbl_contains({"haskell"}, vim.bo.filetype) then vim.lsp.buf.format() end
+]])
 
 -- Enable clipboard
 vim.cmd [[set clipboard+=unnamedplus]]

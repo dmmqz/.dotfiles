@@ -151,8 +151,8 @@ require("lazy").setup({
     },
 
     -- Haskell tools
-    {
-        "MrcJkb/haskell-tools.nvim",
-        version = '^4', -- Recommended
-    }
+    -- {
+    --     "MrcJkb/haskell-tools.nvim",
+    --     version = '^4', -- Recommended
+    -- }
 })
