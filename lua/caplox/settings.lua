@@ -10,7 +10,7 @@ vim.smartindent = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 
--- Format on save (except Haskell)
+-- Format on save
 vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
 -- Enable clipboard
