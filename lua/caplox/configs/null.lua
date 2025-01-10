@@ -11,13 +11,15 @@ null_ls.setup({
         null_opts.on_attach(client, bufnr)
     end,
     sources = {
-        null_ls.builtins.formatting.black,
+        null_ls.builtins.formatting.black.with({
+            command = vim.env.HOME .. '/.local/venv/nvim/bin/black',
+        }),
         null_ls.builtins.diagnostics.pylint.with({
             command = "pylint",
             args = {
                 "--disable=F0401", -- Ignore import errors, as they are handled by the language server
                 "--output-format=json",
-                "$FILENAME"
+                "$FILENAME",
             },
         }),
     },

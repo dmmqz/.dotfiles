@@ -19,18 +19,12 @@ end)
 -- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
 require('mason').setup({})
 require('mason-lspconfig').setup({
-    ensure_installed = { "pyright", "clangd", "lua_ls", }, -- pyright doesn't do formatting, see null.lua
+    ensure_installed = {
+        "clangd",
+        "lua_ls",
+    },
     handlers = {
         lsp_zero.default_setup,
-        pyright = function()
-            require('lspconfig').pyright.setup({
-                settings = {
-                    python = {
-                        pythonPath = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python",
-                    },
-                },
-            })
-        end,
         clangd = function()
             require('lspconfig').clangd.setup({})
         end,

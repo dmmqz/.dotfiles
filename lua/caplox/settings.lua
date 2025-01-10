@@ -6,7 +6,6 @@ vim.opt.expandtab = true
 vim.autoindent = true
 vim.smartindent = true
 
-
 -- Haskell 2 space indent
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "haskell",
@@ -24,3 +23,6 @@ vim.cmd([[
 
 -- Enable clipboard
 vim.cmd [[set clipboard+=unnamedplus]]
+
+-- Specify Python provider
+vim.g.python3_host_prog = vim.env.HOME .. '/.local/venv/nvim/bin/python'
