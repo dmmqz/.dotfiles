@@ -5,13 +5,13 @@ lsp_zero.on_attach(function(client, bufnr)
 
     -- vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
     -- vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-    -- vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-    -- vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
+    -- vim.keymap.set("n", "<Leader>sws", function() vim.lsp.buf.workspace_symbol() end, opts)
+    -- vim.keymap.set("n", "<Leader>sd", function() vim.diagnostic.open_float() end, opts)
     -- vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
     -- vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-    -- vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-    -- vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
-    -- vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
+    -- vim.keymap.set("n", "<Leader>sca", function() vim.lsp.buf.code_action() end, opts)
+    -- vim.keymap.set("n", "<Leader>srr", function() vim.lsp.buf.references() end, opts)
+    -- vim.keymap.set("n", "<Leader>srn", function() vim.lsp.buf.rename() end, opts)
     -- vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
@@ -20,20 +20,38 @@ end)
 require('mason').setup({})
 require('mason-lspconfig').setup({
     ensure_installed = {
+        "pylsp",
         "clangd",
         "lua_ls",
     },
     handlers = {
         lsp_zero.default_setup,
+        pylsp = function()
+            require('lspconfig').pylsp.setup({
+                settings = {
+                    pylsp = {
+                        plugins = {
+                            -- Plugins are installed in null.lua
+                            black = { enabled = false },
+                            autopep8 = { enabled = false },
+                            yapf = { enabled = false },
+                            pylint = { enabled = false },
+                            pyflakes = { enabled = false },
+                            pycodestyle = { enabled = false },
+                            pylsp_mypy = { enabled = false },
+                            jedi_completion = { fuzzy = false },
+                            pyls_isort = { enabled = false },
+                        },
+                    },
+                },
+            })
+        end,
         clangd = function()
             require('lspconfig').clangd.setup({})
         end,
         lua_ls = function()
             local lua_opts = lsp_zero.nvim_lua_ls()
             require('lspconfig').lua_ls.setup(lua_opts)
-        end,
-        hls = function()
-            require('lspconfig').hls.setup({})
         end,
     },
 })

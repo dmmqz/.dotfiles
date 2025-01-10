@@ -141,18 +141,4 @@ require("lazy").setup({
             vim.o.timeoutlen = 300
         end,
     },
-
-    -- Colorizer
-    {
-        "norcalli/nvim-colorizer.lua",
-        config = function()
-            require("colorizer").setup()
-        end,
-    },
-
-    -- Haskell tools
-    -- {
-    --     "MrcJkb/haskell-tools.nvim",
-    --     version = '^4', -- Recommended
-    -- }
 })

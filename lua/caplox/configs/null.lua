@@ -12,7 +12,7 @@ null_ls.setup({
     end,
     sources = {
         null_ls.builtins.formatting.black.with({
-            command = vim.env.HOME .. '/.local/venv/nvim/bin/black',
+            command = "black",
         }),
         null_ls.builtins.diagnostics.pylint.with({
             command = "pylint",

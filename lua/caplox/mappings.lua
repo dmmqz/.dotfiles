@@ -13,8 +13,6 @@ vim.keymap.set("n", "<C-l>", "<C-w>l")
 -- Telescope (fuzzy finder) keybinds
 vim.keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, { silent = true })
 vim.keymap.set("n", "<leader>fg", require("telescope.builtin").live_grep, { silent = true })
--- vim.keymap.set("n", "<leader>fb", require("telescope.builtin").buffers, {})
--- vim.keymap.set("n", "<leader>fh", require("telescope.builtin").help_tags, {})
 
 -- Commentary (comments) keybinds
 vim.keymap.set("n", "<Leader>/", vim.cmd.Commentary)
