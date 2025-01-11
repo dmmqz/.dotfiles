@@ -56,11 +56,10 @@ require('mason-lspconfig').setup({
     },
 })
 
+-- cmp
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
--- this is the function that loads the extra snippets to luasnip
--- from rafamadriz/friendly-snippets
 cmp.setup({
     sources = {
         { name = 'path' },

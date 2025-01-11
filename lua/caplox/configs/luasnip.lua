@@ -29,32 +29,3 @@ vim.keymap.set("i", "<C-l>", function()
 end, { silent = true })
 
 require('luasnip.loaders.from_vscode').lazy_load() -- Some basic snippets
-
--- Custom snippets
-local s = ls.snippet
-local t = ls.text_node
-local i = ls.insert_node
-local fmt = require("luasnip.extras.fmt").fmt
-
--- ls.add_snippets(
---     "python", {
--- s("print", {
---     t("print("), i(1), t(")")
--- }),
--- s(
---     "class",
---     fmt(
---         [[
---     class {1}:
---         def __init__(self{2}) -> None:
---             {3}
---     ]],
---         {
---             i(1, "MyClass"),
---             i(2),
---             i(3, "pass"),
---         }
---     )
--- ),
--- }
--- )
