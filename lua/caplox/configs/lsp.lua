@@ -12,7 +12,8 @@ require('mason').setup({})
 require('mason-lspconfig').setup({
     -- https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
     ensure_installed = {
-        "pylsp",
+        "pylsp", -- autocompletion
+        "ruff",  -- formatter + linter
         "clangd",
         "lua_ls",
     },
@@ -33,9 +34,29 @@ require('mason-lspconfig').setup({
                             pylsp_mypy = { enabled = false },
                             jedi_completion = { fuzzy = false },
                             pyls_isort = { enabled = false },
+                        }
+                    }
+                }
+            })
+        end,
+        ruff = function()
+            require('lspconfig').ruff.setup({
+                init_options = {
+                    settings = {
+                        lineLength = 100,
+                        format = {
+                            preview = false,
                         },
-                    },
-                },
+                        lint = {
+                            preview = true,
+                            -- https://docs.astral.sh/ruff/rules/
+                            extendSelect = {
+                                "PL",
+                                "SLF001",
+                            },
+                        },
+                    }
+                }
             })
         end,
         clangd = function()
