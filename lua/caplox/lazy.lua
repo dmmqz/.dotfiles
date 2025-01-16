@@ -69,6 +69,9 @@ require("lazy").setup({
     { "hrsh7th/cmp-path" },
     { "saadparwaiz1/cmp_luasnip" },
 
+    -- Linter
+    { "mfussenegger/nvim-lint" },
+
     -- Snippets
     { "L3MON4D3/LuaSnip" },
     { "rafamadriz/friendly-snippets" },

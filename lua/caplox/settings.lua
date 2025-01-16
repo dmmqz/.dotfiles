@@ -17,4 +17,5 @@ vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 vim.cmd [[set clipboard+=unnamedplus]]
 
 -- Specify Python provider
+-- vim.g.python3_host_prog = vim.env.HOME .. '/miniconda3/envs/sim-mesa/bin/python'
 vim.g.python3_host_prog = vim.env.HOME .. '/.local/venv/nvim/bin/python'

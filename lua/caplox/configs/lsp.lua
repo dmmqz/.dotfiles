@@ -28,11 +28,11 @@ require('mason-lspconfig').setup({
                             black = { enabled = false },
                             autopep8 = { enabled = false },
                             yapf = { enabled = false },
-                            pylint = { enabled = false },
+                            pylint = { enabled = true },
                             pyflakes = { enabled = false },
                             pycodestyle = { enabled = false },
                             pylsp_mypy = { enabled = false },
-                            jedi_completion = { fuzzy = false },
+                            jedi_completion = { fuzzy = true },
                             pyls_isort = { enabled = false },
                         }
                     }
@@ -48,12 +48,7 @@ require('mason-lspconfig').setup({
                             preview = false,
                         },
                         lint = {
-                            preview = true,
-                            -- https://docs.astral.sh/ruff/rules/
-                            extendSelect = {
-                                "PL",
-                                "SLF001",
-                            },
+                            enable = false,
                         },
                     }
                 }
