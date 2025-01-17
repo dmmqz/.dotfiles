@@ -3,8 +3,8 @@ local lsp_zero = require('lsp-zero')
 lsp_zero.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
 
-    -- See :help lsp-zero-keybindings for binds
-    lsp_zero.default_keymaps({ buffer = bufnr })
+    -- See :help lsp-zero-keybindings for default binds
+    vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
 end)
 
 -- https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md

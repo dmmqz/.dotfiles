@@ -7,15 +7,15 @@ cmp.setup({
     sources = {
         { name = 'nvim_lsp' },
         { name = 'path' },
-        { name = 'luasnip', keyword_length = 2 },
-        { name = 'buffer',  keyword_length = 3 },
+        { name = 'luasnip' },
+        { name = 'buffer',  keyword_length = 5 },
     },
     formatting = lsp_zero.cmp_format(),
     mapping = cmp.mapping.preset.insert({
         ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
         ['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
         ['<Enter>'] = cmp.mapping.confirm({ select = true }),
-        -- ['<C-Space>'] = cmp.mapping.complete(),
+        ['<C-e>'] = cmp.mapping.abort(),
     }),
 
     -- Disable cmp on comments and Telescope buffer
@@ -35,7 +35,6 @@ cmp.setup({
             return true
         else
             return not context.in_treesitter_capture("comment")
-                and not context.in_syntax_group("Comment")
         end
     end
 })
