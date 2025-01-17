@@ -77,12 +77,12 @@ require("lazy").setup({
         cmd = "Trouble",
         keys = {
             {
-                " xx",
+                " xX",
                 "<cmd>Trouble diagnostics toggle<cr>",
                 desc = "Diagnostics (Trouble)",
             },
             {
-                " xX",
+                " xx",
                 "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
                 desc = "Buffer Diagnostics (Trouble)",
             },
