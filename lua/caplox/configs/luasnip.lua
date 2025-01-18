@@ -22,7 +22,7 @@ vim.keymap.set({ "i", "s" }, "<C-s>", function()
 end, { silent = true })
 
 -- Cycle through options for this input
-vim.keymap.set("i", "<C-l>", function()
+vim.keymap.set("i", "<C-o>", function()
     if ls.choice_active() then
         ls.change_choice(1)
     end

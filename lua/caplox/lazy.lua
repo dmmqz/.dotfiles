@@ -15,8 +15,23 @@ require("lazy").setup({
     -- telescope, fuzzy finder etc
     {
         "nvim-telescope/telescope.nvim",
-        tag = "0.1.5",
         dependencies = { "nvim-lua/plenary.nvim" },
+        config = function()
+            require("telescope").setup({
+                defaults = {
+                    -- Flip C-c and ESC bindings
+                    mappings = {
+                        i = {
+                            ["<C-c>"] = false,
+                            ["<ESC>"] = require('telescope.actions').close,
+                        },
+                        n = {
+                            ["<C-c>"] = require('telescope.actions').close,
+                        }
+                    }
+                }
+            })
+        end,
     },
 
 
@@ -169,6 +184,9 @@ require("lazy").setup({
         config = function()
             require("oil").setup({
                 default_file_explorer = true,
+                keymaps = {
+                    ["<C-c>"] = false,
+                }
             })
         end,
     },
