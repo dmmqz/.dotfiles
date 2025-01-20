@@ -2,7 +2,7 @@
 vim.g.mapleader = " " -- <Leader> keybind
 vim.keymap.set("n", "<C-n>", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 vim.keymap.set("n", ";", ":")
-vim.keymap.set({ "n", "v", "i" }, "<C-c>", "<ESC>")
+vim.keymap.set({ "n", "v", "i", "s" }, "<C-c>", "<ESC>")
 
 -- Plugins
 -- Telescope (fuzzy finder) keybinds
