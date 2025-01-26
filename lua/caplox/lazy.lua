@@ -204,4 +204,35 @@ require("lazy").setup({
             vim.o.timeoutlen = 300
         end,
     },
+
+    -- Cmake
+    {
+        "Civitasv/cmake-tools.nvim",
+        ft = { "cpp" },
+        config = function()
+            require('cmake-tools').setup({})
+        end,
+        keys = {
+            {
+                " cc",
+                "<cmd>CMakeRun<cr>",
+                desc = "Run current selection",
+            },
+            {
+                " cr",
+                "<cmd>CMakeRunCurrentFile<cr>",
+                desc = "Run current file",
+            },
+            {
+                " ct",
+                "<cmd>CMakeCloseRunner<cr>",
+                desc = "Close Terminal",
+            },
+            {
+                " cs",
+                "<cmd>CMakeSelectLaunchTarget<cr>",
+                desc = "Switch Executable",
+            },
+        },
+    },
 })

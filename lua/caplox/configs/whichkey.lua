@@ -36,11 +36,17 @@ wk.add({
     { "<Leader>p", desc = "Paste to Clipboard", icon = "" },
     { "<Leader>y", desc = "Yank to Clipboard", icon = "" },
 
-    { "<Leader>x", group = "Trouble" },
+    { "<Leader>x", group = "Trouble", icon = "" },
     { "<Leader>xx", desc = "Diagnostics" },
     { "<Leader>xX", desc = "Buffer Diagnostics", },
     { "<Leader>xs", desc = "Symbols", },
     { "<Leader>xl", desc = "LSP Definitions", },
     { "<Leader>xL", desc = "Location List" },
     { "<Leader>xQ", desc = "Quickfix List" },
+
+    { "<Leader>c", group = "CMake", icon = "" },
+    { "<Leader>cc", icon = "" },
+    { "<Leader>cr", icon = "" },
+    { "<Leader>cs", icon = "" },
+    { "<Leader>ct", icon = "" },
 })
