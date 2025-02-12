@@ -28,4 +28,6 @@ vim.keymap.set("i", "<C-o>", function()
     end
 end, { silent = true })
 
-require('luasnip.loaders.from_vscode').lazy_load() -- Some basic snippets
+-- Some basic snippets
+require('luasnip.loaders.from_vscode').lazy_load()
+require('luasnip').filetype_extend("cpp", { "cppdoc" })
