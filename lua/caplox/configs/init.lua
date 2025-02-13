@@ -5,5 +5,3 @@ require("caplox.configs.mason")
 require("caplox.configs.nvim-dap")
 require("caplox.configs.whichkey")
 require("caplox.configs.luasnip")
-
--- require("caplox.configs.snippets")
