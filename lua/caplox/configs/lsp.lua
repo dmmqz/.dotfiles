@@ -1,24 +1,35 @@
-local lsp_zero = require('lsp-zero')
+-- Reserve space in gutter
+vim.opt.signcolumn = 'yes'
 
-lsp_zero.on_attach(function(client, bufnr)
-    local opts = { buffer = bufnr, remap = false }
+-- lsp setup for cmp
+local lspconfig_defaults = require('lspconfig').util.default_config
+lspconfig_defaults.capabilities = vim.tbl_deep_extend(
+    'force',
+    lspconfig_defaults.capabilities,
+    require('cmp_nvim_lsp').default_capabilities()
+)
 
-    -- See :help lsp-zero-keybindings for default binds
-    vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
-end)
+-- Binds
+vim.api.nvim_create_autocmd('LspAttach', {
+    callback = function(event)
+        local opts = { buffer = event.buf }
+
+        vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
+        vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
+    end,
+})
 
 -- https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
 require('mason').setup({})
 require('mason-lspconfig').setup({
     -- https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
     ensure_installed = {
-        "pylsp", -- autocompletion
-        "ruff",  -- formatter + linter
+        "pylsp", -- Python autocompletion
+        "ruff",  -- Python formatter
         "clangd",
         "lua_ls",
     },
     handlers = {
-        lsp_zero.default_setup,
         pylsp = function()
             require('lspconfig').pylsp.setup({
                 settings = {
@@ -58,8 +69,7 @@ require('mason-lspconfig').setup({
             require('lspconfig').clangd.setup({})
         end,
         lua_ls = function()
-            local lua_opts = lsp_zero.nvim_lua_ls()
-            require('lspconfig').lua_ls.setup(lua_opts)
+            require('lspconfig').lua_ls.setup({})
         end,
     },
 })

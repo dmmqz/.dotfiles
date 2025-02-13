@@ -43,7 +43,6 @@ require("lazy").setup({
         config = function()
             vim.cmd([[colorscheme tokyonight]])
         end,
-        opts = {},
     },
 
     -- Treesitter
@@ -71,7 +70,6 @@ require("lazy").setup({
 
     -- LSP
     { "neovim/nvim-lspconfig" },
-    { "VonHeikemen/lsp-zero.nvim",        branch = "v3.x" },
 
     -- Mason
     { "williamboman/mason.nvim", },
@@ -83,6 +81,7 @@ require("lazy").setup({
     { "hrsh7th/cmp-buffer" },
     { "hrsh7th/cmp-path" },
     { "saadparwaiz1/cmp_luasnip" },
+    { "onsails/lspkind.nvim" },
 
     -- Linter
     { "mfussenegger/nvim-lint" },
@@ -134,9 +133,7 @@ require("lazy").setup({
     { "tpope/vim-fugitive" },
     {
         "lewis6991/gitsigns.nvim",
-        config = function()
-            require("gitsigns").setup()
-        end,
+        opts = {},
     },
 
     -- Commentary for easier commenting
@@ -183,14 +180,12 @@ require("lazy").setup({
     -- Oil, a netrw like file explorer
     {
         "stevearc/oil.nvim",
-        config = function()
-            require("oil").setup({
-                default_file_explorer = true,
-                keymaps = {
-                    ["<C-c>"] = false,
-                }
-            })
-        end,
+        opts = {
+            default_file_explorer = true,
+            keymaps = {
+                ["<C-c>"] = false,
+            }
+        },
     },
 
     -- Whichkey
@@ -211,9 +206,7 @@ require("lazy").setup({
     {
         "Civitasv/cmake-tools.nvim",
         ft = { "cpp" },
-        config = function()
-            require('cmake-tools').setup({})
-        end,
+        opts = {},
         keys = {
             {
                 " cc",
