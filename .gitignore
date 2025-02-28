@@ -1,8 +1,11 @@
-# General
-*.env  # API keys etc
+# zshrc
+.config/zsh/p10k.sh
+
+# i3
+.config/i3blocks/.env
 
 # Neovim
 .config/nvim/lazy-lock.json
 
-# zshrc
-.config/zsh/p10k.zsh
+# Alacritty
+.config/alacritty/extra.toml

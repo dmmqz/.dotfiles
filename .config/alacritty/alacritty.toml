@@ -1,6 +1,8 @@
 [general]
 import = [
     "theme.toml",
+    # extra.toml is for system specific options
+    "extra.toml",
 ]
 
 [window]
@@ -9,8 +11,6 @@ opacity = 0.8
 [font]
 # Normal automatically adjusts others
 normal = { family = "FiraCode Nerd Font", style = "Regular"}
-size = 15
-offset = {x = 0, y = 1}
 
 [mouse]
 hide_when_typing = true
