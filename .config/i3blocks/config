@@ -1,0 +1,22 @@
+command=$SCRIPT_DIR/$BLOCK_NAME
+separator_block_width=15
+markup=none
+
+[mediaplayer]
+command=perl $SCRIPT_DIR/mediaplayer
+instance=cmus
+interval=5
+signal=10
+
+[volume-custom]
+command=bash $SCRIPT_DIR/volume-custom
+interval=1
+signal=10
+
+[weather]
+command=bash $SCRIPT_DIR/weather
+interval=600
+
+[time]
+command=date '+%Y-%m-%d %H:%M:%S'
+interval=1

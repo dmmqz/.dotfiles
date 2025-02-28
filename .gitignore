@@ -1,2 +1,8 @@
+# General
+*.env  # API keys etc
+
 # Neovim
 .config/nvim/lazy-lock.json
+
+# zshrc
+.config/zsh/p10k.zsh

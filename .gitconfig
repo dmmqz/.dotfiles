@@ -1,0 +1,12 @@
+[credential]
+	helper = store
+
+[user]
+	name = dmmqz
+	email = dmmc@tuta.io
+    
+[pager]
+	branch = false
+
+[branch]
+	sort = -committerdate

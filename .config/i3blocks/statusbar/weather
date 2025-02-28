@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Load environment variables from .env file
+[ ! -f .env ] || export $(grep -v '^#' .env | xargs)
+
+# Make API request and store JSON response
+response=$(curl -s "https://api.openweathermap.org/data/2.5/weather?q=${CITY}&APPID=${API_KEY}")
+
+# Extract relevant information using jq and perform conversion
+weather_description=$(echo "${response}" | jq -r '.weather[0].description')
+temperature_celsius=$(echo "${response}" | jq -r '.main.temp - 273.15 | round')
+feels_like_celsius=$(echo "${response}" | jq -r '.main.feels_like - 273.15 | round')
+
+# Print the weather information
+if [ "${temperature_celsius}" = "${feels_like_celsius}" ]; then
+    echo "${weather_description}, ${temperature_celsius}°C"
+else
+    echo "${weather_description}, ${temperature_celsius}°C (${feels_like_celsius}°C)"
+fi
+
+# Handle mouse click
+case $button in
+    1|2) xdg-open "https://wttr.in/${CITY}" ;;
+    3) exec i3-sensible-terminal -e "lynx https://teletekst-data.nos.nl/webplus?p=101" ;;
+esac
