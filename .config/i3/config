@@ -212,7 +212,7 @@ exec --no-startup-id mullvad-vpn
 # Multi language keyboard. ctrl + space to toggle languages. 
 # exec --no-startup-id fcitx5 -d
 
-exec_always --no-startup-id ~/.config/.fehbg
+exec_always --no-startup-id sh ~/.config/.fehbg
 exec_always --no-startup-id picom --config /etc/xdg/picom.conf
 
 # Bind PrintScrn to take a screenshot and give a notification
