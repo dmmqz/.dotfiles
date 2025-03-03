@@ -208,12 +208,12 @@ bindsym $mod+f exec librewolf
 bindsym $mod+m exec thunderbird
 
 exec --no-startup-id mullvad-vpn
+exec --no-startup-id picom --config ~/.config/picom/picom.conf
 
 # Multi language keyboard. ctrl + space to toggle languages. 
 # exec --no-startup-id fcitx5 -d
 
 exec_always --no-startup-id sh ~/.config/.fehbg
-exec_always --no-startup-id picom --config /etc/xdg/picom.conf
 
 # Bind PrintScrn to take a screenshot and give a notification
 bindsym Print exec --no-startup-id scrot -e 'mv $f ~/Media/Pictures/Screenshots' && notify-send "Screenshot taken" "Saved to ~/Media/Pictures/Screenshots"
