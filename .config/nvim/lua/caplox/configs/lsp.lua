@@ -25,7 +25,7 @@ require('mason-lspconfig').setup({
     -- https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
     ensure_installed = {
         "pylsp", -- Python autocompletion
-        "ruff",  -- Python formatter
+        "ruff",  -- Python formatter and linter
         "clangd",
         "lua_ls",
     },
@@ -35,7 +35,6 @@ require('mason-lspconfig').setup({
                 settings = {
                     pylsp = {
                         plugins = {
-                            -- Plugins are installed in null.lua
                             black = { enabled = false },
                             autopep8 = { enabled = false },
                             yapf = { enabled = false },
@@ -59,7 +58,8 @@ require('mason-lspconfig').setup({
                             preview = false,
                         },
                         lint = {
-                            enable = false,
+                            enable = true,
+                            preview = false,
                         },
                     }
                 }
