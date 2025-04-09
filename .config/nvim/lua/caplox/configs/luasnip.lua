@@ -15,7 +15,7 @@ vim.keymap.set({ "i", "s" }, "<C-d>", function()
 end, { silent = true })
 
 -- Jump to previous input area
-vim.keymap.set({ "i", "s" }, "<C-s>", function()
+vim.keymap.set({ "i", "s" }, "<C-x>", function()
     if ls.jumpable(-1) then
         ls.jump(-1)
     end

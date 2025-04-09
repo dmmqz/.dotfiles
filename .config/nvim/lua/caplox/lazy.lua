@@ -68,12 +68,9 @@ require("lazy").setup({
         end,
     },
 
-    -- LSP
-    { "neovim/nvim-lspconfig" },
-
     -- Mason
     { "williamboman/mason.nvim", },
-    { "williamboman/mason-lspconfig.nvim" },
+    { "WhoIsSethDaniel/mason-tool-installer.nvim" },
 
     -- cmp (completion)
     { "hrsh7th/nvim-cmp" },
@@ -82,9 +79,10 @@ require("lazy").setup({
     { "hrsh7th/cmp-path" },
     { "saadparwaiz1/cmp_luasnip" },
     { "onsails/lspkind.nvim" },
+    { "neovim/nvim-lspconfig" },
 
     -- Linter
-    { "mfussenegger/nvim-lint" },
+    -- { "mfussenegger/nvim-lint" },
     {
         "folke/trouble.nvim",
         opts = {},
@@ -157,9 +155,6 @@ require("lazy").setup({
 
     -- None-ls, formatting for python
     { "nvimtools/none-ls.nvim", },
-
-    -- Mason Auto-Installer
-    { "WhoIsSethDaniel/mason-tool-installer.nvim" },
 
     -- nvim-dap
     { "mfussenegger/nvim-dap" },

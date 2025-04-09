@@ -9,67 +9,67 @@ lspconfig_defaults.capabilities = vim.tbl_deep_extend(
     require('cmp_nvim_lsp').default_capabilities()
 )
 
--- Binds
-vim.api.nvim_create_autocmd('LspAttach', {
-    callback = function(event)
-        local opts = { buffer = event.buf }
-
-        vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
-        vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-    end,
-})
-
--- https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
-require('mason').setup({})
-require('mason-lspconfig').setup({
-    -- https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
-    ensure_installed = {
-        "pylsp", -- Python autocompletion
-        "ruff",  -- Python formatter and linter
-        "clangd",
-        "lua_ls",
-    },
-    handlers = {
-        pylsp = function()
-            require('lspconfig').pylsp.setup({
+-- New way to configure LSPs (v0.11)
+-- Configure LSPs (installed with Mason)
+vim.lsp.config["luals"] = {
+    cmd = { "lua-language-server" },
+    filetypes = { "lua" },
+    root_markers = { ".luarc.json", ".luarc.jsonc" },
+    settings = {
+        Lua = {
+            runtime = {
+                version = 'LuaJIT',
+            }
+        }
+    }
+}
+vim.lsp.config["pylsp"] = {
+    cmd = { "pylsp" },
+    filetypes = { "python" },
+    root_markers = { "pyproject.toml" },
+    settings = {
+        plugins = {
+            black = { enabled = false },
+            autopep8 = { enabled = false },
+            yapf = { enabled = false },
+            pylint = { enabled = false },
+            pyflakes = { enabled = false },
+            pycodestyle = { enabled = false },
+            pylsp_mypy = { enabled = false },
+            jedi_completion = { fuzzy = true },
+            pyls_isort = { enabled = false },
+        }
+    }
+}
+vim.lsp.config["ruff"] = {
+    cmd = { "ruff", "server" },
+    filetypes = { "python" },
+    root_markers = { "pyproject.toml", "ruff.toml", ".ruff.toml" },
+    settings = {
+        pylsp = {
+            init_options = {
                 settings = {
-                    pylsp = {
-                        plugins = {
-                            black = { enabled = false },
-                            autopep8 = { enabled = false },
-                            yapf = { enabled = false },
-                            pylint = { enabled = false },
-                            pyflakes = { enabled = false },
-                            pycodestyle = { enabled = false },
-                            pylsp_mypy = { enabled = false },
-                            jedi_completion = { fuzzy = true },
-                            pyls_isort = { enabled = false },
-                        }
-                    }
+                    lineLength = 100,
+                    format = {
+                        preview = false,
+                    },
+                    lint = {
+                        enable = true,
+                        preview = false,
+                    },
                 }
-            })
-        end,
-        ruff = function()
-            require('lspconfig').ruff.setup({
-                init_options = {
-                    settings = {
-                        lineLength = 100,
-                        format = {
-                            preview = false,
-                        },
-                        lint = {
-                            enable = true,
-                            preview = false,
-                        },
-                    }
-                }
-            })
-        end,
-        clangd = function()
-            require('lspconfig').clangd.setup({})
-        end,
-        lua_ls = function()
-            require('lspconfig').lua_ls.setup({})
-        end,
-    },
-})
+            }
+        }
+    }
+}
+vim.lsp.config["clangd"] = {
+    cmd = { "clangd" },
+    filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
+    root_markers = { ".clang-format" },
+}
+
+-- Enable LSPs
+vim.lsp.enable("luals")
+vim.lsp.enable("pylsp")
+vim.lsp.enable("clangd")
+vim.lsp.enable("ruff")

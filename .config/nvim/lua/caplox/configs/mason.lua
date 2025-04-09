@@ -1,7 +1,12 @@
--- This does autoinstallation of mason packages
+require("mason").setup({})
+
 require("mason-tool-installer").setup {
     ensure_installed = {
-        "pylint"
+        "clangd",
+        "lua-language-server",
+        "pylint",
+        "python-lsp-server",
+        "ruff"
     },
     auto_update = true,
 }
