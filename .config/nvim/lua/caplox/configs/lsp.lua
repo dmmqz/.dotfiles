@@ -28,16 +28,18 @@ vim.lsp.config["pylsp"] = {
     filetypes = { "python" },
     root_markers = { "pyproject.toml" },
     settings = {
-        plugins = {
-            black = { enabled = false },
-            autopep8 = { enabled = false },
-            yapf = { enabled = false },
-            pylint = { enabled = false },
-            pyflakes = { enabled = false },
-            pycodestyle = { enabled = false },
-            pylsp_mypy = { enabled = false },
-            jedi_completion = { fuzzy = true },
-            pyls_isort = { enabled = false },
+        pylsp = {
+            plugins = {
+                black = { enabled = false },
+                autopep8 = { enabled = false },
+                yapf = { enabled = false },
+                pylint = { enabled = false },
+                pyflakes = { enabled = false },
+                pycodestyle = { enabled = false },
+                pylsp_mypy = { enabled = false },
+                jedi_completion = { fuzzy = true },
+                pyls_isort = { enabled = false },
+            }
         }
     }
 }
@@ -46,18 +48,16 @@ vim.lsp.config["ruff"] = {
     filetypes = { "python" },
     root_markers = { "pyproject.toml", "ruff.toml", ".ruff.toml" },
     settings = {
-        pylsp = {
-            init_options = {
-                settings = {
-                    lineLength = 100,
-                    format = {
-                        preview = false,
-                    },
-                    lint = {
-                        enable = true,
-                        preview = false,
-                    },
-                }
+        init_options = {
+            settings = {
+                lineLength = 100,
+                format = {
+                    preview = false,
+                },
+                lint = {
+                    enable = true,
+                    preview = false,
+                },
             }
         }
     }
