@@ -5,5 +5,5 @@ export EDITOR="nvim"
 
 # Import additional configuration files
 for file (~/.config/zsh/*); do
-  source $file
+    source $file
 done
