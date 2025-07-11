@@ -4,9 +4,15 @@
 [user]
 	name = dmmqz
 	email = dmmc@tuta.io
+	signingkey = A998FE45428B56EA
     
 [pager]
 	branch = false
 
 [branch]
 	sort = -committerdate
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
