@@ -6,7 +6,8 @@ require("mason-tool-installer").setup {
         "lua-language-server",
         "pylint",
         "python-lsp-server",
-        "ruff"
+        "ruff",
+        "rust-analyzer"
     },
     auto_update = true,
 }

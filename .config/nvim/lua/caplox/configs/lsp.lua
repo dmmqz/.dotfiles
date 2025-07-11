@@ -65,9 +65,15 @@ vim.lsp.config["clangd"] = {
     filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
     root_markers = { ".clang-format" },
 }
+vim.lsp.config["rust_analyzer"] = {
+    cmd = { "rust-analyzer" },
+    filetypes = { "rust" },
+    root_markers = { "Cargo.toml" }
+}
 
 -- Enable LSPs
 vim.lsp.enable("luals")
 vim.lsp.enable("pylsp")
 vim.lsp.enable("clangd")
 vim.lsp.enable("ruff")
+vim.lsp.enable("rust_analyzer")
