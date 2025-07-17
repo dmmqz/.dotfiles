@@ -1,7 +1,6 @@
 local wk = require("which-key")
 
 wk.add({
-    { ";", desc = "Command Mode" },
     { "<C-n>", desc = "Open Parent Directory" },
     { "<F5>", desc = "Run Code" },
 
@@ -49,4 +48,11 @@ wk.add({
     { "<Leader>cr", icon = "" },
     { "<Leader>cs", icon = "" },
     { "<Leader>ct", icon = "" },
+
+    { "gr", group = "LSP", icon = "" },
+    { "gra", desc = "Code completion", icon = "" },
+    { "grd", desc = "Go to definition", icon = "" },
+    { "gri", desc = "Go to implementation", icon = "" },
+    { "grn", desc = "Rename", icon = "" },
+    { "grr", desc = "See references", icon = "" },
 })

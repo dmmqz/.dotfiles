@@ -29,3 +29,6 @@ vim.keymap.set("n", "<leader>gu", ":Git reset<CR>", {})
 -- Clipboard
 vim.keymap.set("n", "<leader>y", '"+y')
 vim.keymap.set("n", "<leader>p", '"+p')
+
+-- LSP
+vim.keymap.set("n", "grd", vim.lsp.buf.definition)
