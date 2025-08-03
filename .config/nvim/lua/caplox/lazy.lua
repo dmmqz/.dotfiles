@@ -82,7 +82,6 @@ require("lazy").setup({
     { "neovim/nvim-lspconfig" },
 
     -- Linter
-    -- { "mfussenegger/nvim-lint" },
     {
         "folke/trouble.nvim",
         opts = {},
@@ -152,9 +151,6 @@ require("lazy").setup({
             vim.g.vimtex_view_general_viewer = "okular"
         end,
     },
-
-    -- None-ls, formatting for python
-    { "nvimtools/none-ls.nvim", },
 
     -- nvim-dap
     { "mfussenegger/nvim-dap" },
