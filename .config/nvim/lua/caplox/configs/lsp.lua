@@ -1,16 +1,11 @@
--- Reserve space in gutter
-vim.opt.signcolumn = 'yes'
+vim.lsp.enable({
+    "luals",
+    "pylsp",
+    "clangd",
+    "ruff",
+    "rust_analyzer",
+})
 
--- lsp setup for cmp
-local lspconfig_defaults = require('lspconfig').util.default_config
-lspconfig_defaults.capabilities = vim.tbl_deep_extend(
-    'force',
-    lspconfig_defaults.capabilities,
-    require('cmp_nvim_lsp').default_capabilities()
-)
-
--- New way to configure LSPs (v0.11)
--- Configure LSPs (installed with Mason)
 vim.lsp.config["luals"] = {
     cmd = { "lua-language-server" },
     filetypes = { "lua" },
@@ -43,6 +38,11 @@ vim.lsp.config["pylsp"] = {
         }
     }
 }
+vim.lsp.config["clangd"] = {
+    cmd = { "clangd" },
+    filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
+    root_markers = { ".clang-format" },
+}
 vim.lsp.config["ruff"] = {
     cmd = { "ruff", "server" },
     filetypes = { "python" },
@@ -60,20 +60,8 @@ vim.lsp.config["ruff"] = {
         }
     }
 }
-vim.lsp.config["clangd"] = {
-    cmd = { "clangd" },
-    filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
-    root_markers = { ".clang-format" },
-}
 vim.lsp.config["rust_analyzer"] = {
     cmd = { "rust-analyzer" },
     filetypes = { "rust" },
     root_markers = { "Cargo.toml" }
 }
-
--- Enable LSPs
-vim.lsp.enable("luals")
-vim.lsp.enable("pylsp")
-vim.lsp.enable("clangd")
-vim.lsp.enable("ruff")
-vim.lsp.enable("rust_analyzer")

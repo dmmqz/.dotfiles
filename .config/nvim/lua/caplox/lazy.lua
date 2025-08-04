@@ -12,7 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    -- telescope, fuzzy finder etc
+    -- Telescope
     {
         "nvim-telescope/telescope.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
@@ -72,16 +72,27 @@ require("lazy").setup({
     { "williamboman/mason.nvim", },
     { "WhoIsSethDaniel/mason-tool-installer.nvim" },
 
-    -- cmp (completion)
-    { "hrsh7th/nvim-cmp" },
-    { "hrsh7th/cmp-nvim-lsp" },
-    { "hrsh7th/cmp-buffer" },
-    { "hrsh7th/cmp-path" },
-    { "saadparwaiz1/cmp_luasnip" },
-    { "onsails/lspkind.nvim" },
-    { "neovim/nvim-lspconfig" },
+    -- Completion
+    {
+        "saghen/blink.cmp",
+        dependencies = { "rafamadriz/friendly-snippets" },
+        version = "1.*",
+        opts = {
+            keymap = {
+                preset = "none",
+                ["<C-e>"] = { "hide" },
+                ["<CR>"] = { "accept", "fallback" },
+                ["<C-k>"] = { "select_prev", "fallback_to_mappings" },
+                ["<C-j>"] = { "show", "select_next", "fallback_to_mappings" },
+            },
+            completion = {
+                menu = { auto_show = false },
+                documentation = { auto_show = true }
+            },
+        },
+    },
 
-    -- Linter
+    -- Diagnostics
     {
         "folke/trouble.nvim",
         opts = {},

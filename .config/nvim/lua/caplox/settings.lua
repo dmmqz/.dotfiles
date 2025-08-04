@@ -10,6 +10,9 @@ vim.smartindent = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+-- Reserve space in gutter
+vim.opt.signcolumn = 'yes'
+
 -- Format on save
 vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
