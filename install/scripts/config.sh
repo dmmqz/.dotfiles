@@ -2,4 +2,6 @@
 
 yay -S --noconfirm --needed stow
 
-stow --target ~ /tmp/.dotfiles
+cd /tmp/.dotfiles
+stow --target ~ .
+cd -
