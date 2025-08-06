@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REPO_DIR="~/.dotfiles"
+REPO_DIR="$HOME/.dotfiles"
 SCRIPT_DIR="$REPO_DIR/install/scripts/"
 
 sudo pacman -Syu --noconfirm --needed git
