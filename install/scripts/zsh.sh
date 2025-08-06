@@ -2,6 +2,6 @@
 
 yay -S --noconfirm --needed zsh
 
-chsh -s zsh
+sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 
-# TODO: p10k, omz
+yay -S --noconfirm --needed zsh-theme-powerlevel10k-git

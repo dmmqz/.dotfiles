@@ -2,6 +2,7 @@
 
 yay -S --noconfirm --needed stow
 
-cd /tmp/.dotfiles
-stow --target ~ .
+cd ~/.dotfiles
+stow --adopt *
+git restore .
 cd -
