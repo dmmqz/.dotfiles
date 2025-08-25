@@ -1,4 +1,6 @@
 #!/bin/bash
 
 sudo systemctl enable ly.service
-# TODO: start syncthing and other services
+sudo systemctl enable syncthing@$USER.service
+
+# TODO: syncthing probably requires manual setup
