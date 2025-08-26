@@ -19,6 +19,7 @@ source $SCRIPT_DIR/terminal.sh
 source $SCRIPT_DIR/zsh.sh
 
 source $SCRIPT_DIR/services.sh
+source $SCRIPT_DIR/wifi.sh
 
 source $SCRIPT_DIR/config.sh
 
