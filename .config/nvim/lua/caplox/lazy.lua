@@ -163,22 +163,6 @@ require("lazy").setup({
         end,
     },
 
-    -- nvim-dap
-    { "mfussenegger/nvim-dap" },
-    { "jay-babu/mason-nvim-dap.nvim" },
-    {
-        "rcarriga/nvim-dap-ui",
-        dependencies = { "https://github.com/nvim-neotest/nvim-nio" },
-        config = function(_, opts)
-            local dap = require("dap")
-            local dapui = require("dapui")
-            dapui.setup(opts)
-            dap.listeners.after.event_initialized["dapui_config"] = function()
-                dapui.open({})
-            end
-        end,
-    },
-
     -- Oil, a netrw like file explorer
     {
         "stevearc/oil.nvim",
@@ -202,35 +186,6 @@ require("lazy").setup({
             vim.o.timeout = true
             vim.o.timeoutlen = 300
         end,
-    },
-
-    -- Cmake
-    {
-        "Civitasv/cmake-tools.nvim",
-        ft = { "cpp" },
-        opts = {},
-        keys = {
-            {
-                " cc",
-                "<cmd>CMakeRun<cr>",
-                desc = "Run current selection",
-            },
-            {
-                " cr",
-                "<cmd>CMakeRunCurrentFile<cr>",
-                desc = "Run current file",
-            },
-            {
-                " ct",
-                "<cmd>CMakeCloseRunner<cr>",
-                desc = "Close Terminal",
-            },
-            {
-                " cs",
-                "<cmd>CMakeSelectLaunchTarget<cr>",
-                desc = "Switch Executable",
-            },
-        },
     },
 
     -- Neovim orgmode

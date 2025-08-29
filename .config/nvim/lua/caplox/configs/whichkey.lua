@@ -6,14 +6,6 @@ wk.add({
 
     { "<Leader>/", desc = "Comment", icon = "󰅺" },
 
-    { "<Leader>d", group = "Debug", "" },
-    { "<Leader>db", desc = "Toggle Breakpoint" },
-    { "<Leader>di", desc = "Step Into" },
-    { "<Leader>dn", desc = "Step Over" },
-    { "<Leader>do", desc = "Step Out" },
-    { "<Leader>dq", desc = "Quit" },
-    { "<Leader>dt", desc = "Toggle Debugger" },
-
     { "<Leader>f", group = "Telescope", icon = "" },
     { "<Leader>ff", desc = "Find files" },
     { "<Leader>fg", desc = "Live grep" },
@@ -43,16 +35,12 @@ wk.add({
     { "<Leader>xL", desc = "Location List" },
     { "<Leader>xQ", desc = "Quickfix List" },
 
-    { "<Leader>c", group = "CMake", icon = "" },
-    { "<Leader>cc", icon = "" },
-    { "<Leader>cr", icon = "" },
-    { "<Leader>cs", icon = "" },
-    { "<Leader>ct", icon = "" },
-
     { "gr", group = "LSP", icon = "" },
     { "gra", desc = "Code completion", icon = "" },
     { "grd", desc = "Go to definition", icon = "" },
     { "gri", desc = "Go to implementation", icon = "" },
     { "grn", desc = "Rename", icon = "" },
     { "grr", desc = "See references", icon = "" },
+
+    { "<Leader>r", desc = "Make file", icon = "" }
 })

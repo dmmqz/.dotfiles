@@ -32,3 +32,4 @@ vim.keymap.set("n", "<leader>p", '"+p')
 
 -- LSP
 vim.keymap.set("n", "grd", vim.lsp.buf.definition)
+vim.keymap.set("n", "<leader>r", ":update<CR> :make<CR>")
