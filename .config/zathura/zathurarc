@@ -1,0 +1,22 @@
+# Settings
+set pages-per-row 1
+
+set scroll-page-aware "true"
+set scroll-full-overlap 0.01
+set scroll-step 50
+
+set selection-clipboard clipboard
+set render-loading "false"
+
+set zoom-min 10
+
+# Keybinds
+map R reload
+
+map i recolor
+
+map J zoom out
+map K zoom in
+
+map l navigate next
+map h navigate previous

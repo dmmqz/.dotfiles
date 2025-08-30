@@ -159,7 +159,7 @@ require("lazy").setup({
         "lervag/vimtex",
         ft = { "tex", "plaintex" },
         config = function()
-            vim.g.vimtex_view_general_viewer = "okular"
+            vim.g.vimtex_view_general_viewer = "zathura"
         end,
     },
 
@@ -178,7 +178,7 @@ require("lazy").setup({
     {
         "folke/which-key.nvim",
         dependencies = {
-            "echasnovski/mini.icons",
+            "nvim-mini/mini.icons",
             "nvim-tree/nvim-web-devicons",
         },
         event = "VeryLazy",
