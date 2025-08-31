@@ -4,7 +4,7 @@ if [ ! -d "/proc/acpi/button/lid" ]; then
     return
 fi
 
-yay -S networkmanager network-manager-applet
+yay -S --noconfirm --needed networkmanager network-manager-applet
 
 sudo systemctl enable NetworkManager.service --now
 
