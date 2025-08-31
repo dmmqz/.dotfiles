@@ -1,0 +1,6 @@
+[cache]
+languages = ["nl", "en"]
+
+[output]
+compact = true
+option_style = "short"
