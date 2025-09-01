@@ -1,1 +1,1 @@
-setlocal makeprg=uv\ run\ %
+setlocal makeprg=python3.10\ %
