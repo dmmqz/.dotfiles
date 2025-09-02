@@ -1,1 +1,1 @@
-setlocal makeprg=python3.10\ %
+setlocal makeprg=python\ %
