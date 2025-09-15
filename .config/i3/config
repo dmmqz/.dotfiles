@@ -127,14 +127,8 @@ exec_always --no-startup-id sh ~/.config/.fehbg
 # exec --no-startup-id fcitx5 -d
 
 # Bind PrintScrn to take a screenshot and give a notification
-bindsym Print exec --no-startup-id scrot -e 'mv $f ~/Media/Pictures/Screenshots' && notify-send "Screenshot taken" "Saved to ~/Media/Pictures/Screenshots"
-bindsym --release $mod+Print exec scrot -s -e 'mv $f ~/Media/Pictures/Screenshots' && notify-send "Screenshot taken" "Saved to ~/Media/Pictures/Screenshots"
-bindsym Shift+Print exec --no-startup-id scrot -u -e 'mv $f ~/Media/Pictures/Screenshots' && notify-send "Screenshot taken" "Saved to ~/Media/Pictures/Screenshots"
-
-# Copy screenshot to clipboard
-bindsym Ctrl+Print exec --no-startup-id scrot -e 'xclip -selection clipboard -t image/png $f' && notify-send "Screenshot taken" "Copied to clipboard"
-bindsym --release Ctrl+$mod+Print exec scrot -s -e 'xclip -selection clipboard -t image/png $f' && notify-send "Screenshot taken" "Copied to clipboard"
-bindsym Ctrl+Shift+Print exec --no-startup-id scrot -u -e 'xclip -selection clipboard -t image/png $f' && notify-send "Screenshot taken" "Copied to clipboard"
+bindsym Print exec flameshot gui -p ~/Media/Pictures/Screenshots
+bindsym Ctrl+Print exec flameshot full -p ~/Media/Pictures/Screenshots
 
 # Hide borders
 for_window [class="^.*"] border pixel 0

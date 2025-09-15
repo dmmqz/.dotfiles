@@ -2,5 +2,5 @@
 
 yay -S --noconfirm --needed \
     betterlockscreen-git dmenu dunst i3-wm \
-    i3blocks i3status ly scrot xclip feh picom \
+    i3blocks i3status ly flameshot xclip feh picom \
     xorg redshift
