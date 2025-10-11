@@ -2,6 +2,7 @@ require("mason").setup({})
 
 require("mason-tool-installer").setup {
     ensure_installed = {
+        "black",
         "clangd",
         "lua-language-server",
         "pylint",

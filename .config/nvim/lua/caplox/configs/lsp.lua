@@ -25,15 +25,17 @@ vim.lsp.config["pylsp"] = {
     settings = {
         pylsp = {
             plugins = {
-                black = { enabled = false },
                 autopep8 = { enabled = false },
-                yapf = { enabled = false },
-                pylint = { enabled = false },
-                pyflakes = { enabled = false },
+                flake8 = { enabled = false },
+                jedi_completion = {
+                    enabled = true,
+                    fuzzy = true
+                },
+                mccabe = { enabled = false },
                 pycodestyle = { enabled = false },
-                pylsp_mypy = { enabled = false },
-                jedi_completion = { fuzzy = true },
-                pyls_isort = { enabled = false },
+                pyflakes = { enabled = false },
+                pylint = { enabled = false },
+                yapf = { enabled = false },
             }
         }
     }
@@ -51,6 +53,7 @@ vim.lsp.config["ruff"] = {
         settings = {
             lineLength = 100,
             format = {
+                enable = false,
                 preview = false,
             },
             lint = {
