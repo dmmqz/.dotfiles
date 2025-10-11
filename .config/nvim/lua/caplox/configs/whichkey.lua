@@ -42,5 +42,6 @@ wk.add({
     { "grn", desc = "Rename", icon = "" },
     { "grr", desc = "See references", icon = "" },
 
-    { "<Leader>r", desc = "Make file", icon = "" }
+    { "<Leader>r", desc = "Make file", icon = "" },
+    { "<Leader>t", desc = "Format file", icon = "󰉢" }
 })

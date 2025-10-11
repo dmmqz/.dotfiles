@@ -92,6 +92,9 @@ require("lazy").setup({
         },
     },
 
+    -- Formatting (uses LSP as fallback)
+    { "stevearc/conform.nvim" },
+
     -- Diagnostics
     {
         "folke/trouble.nvim",
@@ -185,33 +188,6 @@ require("lazy").setup({
         init = function()
             vim.o.timeout = true
             vim.o.timeoutlen = 300
-        end,
-    },
-
-    -- Neovim orgmode
-    {
-        "nvim-neorg/neorg",
-        -- lazy = false,
-        commit = "f8c932a",
-        ft = { "norg" },
-        config = function()
-            require("neorg").setup {
-                load = {
-                    ["core.defaults"] = {},
-                    ["core.concealer"] = {},
-                    ["core.dirman"] = {
-                        config = {
-                            workspaces = {
-                                notes = "~/Documents/notes",
-                            },
-                            default_workspace = "notes",
-                        },
-                    },
-                },
-            }
-
-            vim.wo.foldlevel = 99
-            vim.wo.conceallevel = 2
         end,
     },
 })

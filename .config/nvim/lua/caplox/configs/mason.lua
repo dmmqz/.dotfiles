@@ -4,6 +4,7 @@ require("mason-tool-installer").setup {
     ensure_installed = {
         "black",
         "clangd",
+        "isort",
         "lua-language-server",
         "pylint",
         "python-lsp-server",
