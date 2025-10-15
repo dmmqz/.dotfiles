@@ -18,3 +18,10 @@ vim.opt.signcolumn = 'yes'
 
 -- Enable clipboard
 vim.cmd [[set clipboard+=unnamedplus]]
+
+-- Aliases
+vim.filetype.add({
+    extension = {
+        qss = "css",
+    },
+})
