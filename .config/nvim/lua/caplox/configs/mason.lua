@@ -6,7 +6,6 @@ require("mason-tool-installer").setup {
         "clangd",
         "isort",
         "lua-language-server",
-        "pylint",
         "python-lsp-server",
         "ruff",
         "rust-analyzer"
