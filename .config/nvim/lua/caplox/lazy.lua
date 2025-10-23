@@ -163,6 +163,7 @@ require("lazy").setup({
         ft = { "tex", "plaintex" },
         config = function()
             vim.g.vimtex_view_general_viewer = "zathura"
+            vim.g.vimtex_quickfix_open_on_warning = false
         end,
     },
 
