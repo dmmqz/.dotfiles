@@ -23,6 +23,7 @@ wk.add({
     { "<Leader>l", group = "LaTeX", icon = "" },
     { "<Leader>le", desc = "Errors" },
     { "<Leader>ll", desc = "Compile" },
+    { "<Leader>lt", desc = "ToC Toggle" },
 
     { "<Leader>p", desc = "Paste to Clipboard", icon = "" },
     { "<Leader>y", desc = "Yank to Clipboard", icon = "" },

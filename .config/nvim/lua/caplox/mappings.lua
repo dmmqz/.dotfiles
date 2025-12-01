@@ -15,6 +15,7 @@ vim.api.nvim_set_keymap("x", "<Leader>/", "<Plug>Commentary", { silent = true })
 -- Vimtex (LaTeX) keybinds
 vim.keymap.set("n", "<leader>ll", ":VimtexCompile<CR>", { silent = true })
 vim.keymap.set("n", "<leader>le", ":VimtexErrors<CR>", { silent = true })
+vim.keymap.set("n", "<leader>lt", ":VimtexTocToggle<CR>", { silent = true })
 
 -- Git (fugitive)
 vim.keymap.set("n", "<leader>ga", ":Git add ", {})
