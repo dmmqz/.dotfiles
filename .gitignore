@@ -3,6 +3,13 @@
 
 # Neovim
 .config/nvim/lazy-lock.json
+*.spl
+*.sug
+*.add
 
 # Alacritty
 .config/alacritty/extra.toml
+
+# Jira API token
+.config/zsh/jira_api_token.sh
+
