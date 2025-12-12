@@ -10,6 +10,5 @@
 # Alacritty
 .config/alacritty/extra.toml
 
-# Jira API token
-.config/zsh/jira_api_token.sh
-
+# API keys, etc.
+.config/zsh/secret.sh
