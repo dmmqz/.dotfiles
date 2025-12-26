@@ -1,9 +1,12 @@
 #!/bin/bash
 
-awk -F"[][]" '/Left:/ { print $2 }' <(amixer sget Master)
+# Capture volume and state (on/off)
+volume=$(amixer sget Master | awk -F'[][]' '/Left:/ { print $2 }')
+state=$(amixer sget Master | awk -F'[][]' '/Left:/ { print $4; exit }')
 
-case $button in
-    1) amixer -q sset Master 5%+ ;;
-    2) amixer -q sset Master toggle ;;
-    3) amixer -q sset Master 5%- ;;
-esac
+# Only show the state if it's off
+if [ "$state" == "off" ]; then
+    echo "$volume ($state)"
+else
+    echo "$volume"
+fi
