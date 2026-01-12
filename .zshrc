@@ -2,6 +2,7 @@
 export GTK_THEME=Adwaita-dark
 export MANPAGER="nvim +Man!"
 export EDITOR="nvim"
+xdg-settings set default-web-browser librewolf.desktop
 
 # Import additional configuration files
 source ~/.config/zsh/secret.sh
