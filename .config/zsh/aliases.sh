@@ -12,3 +12,9 @@ alias vi=nvim
 alias vim=nvim
 
 alias pass=keepassxc-cli
+
+wssh() {
+    until ssh "$@"; do
+        sleep 5
+    done
+}
