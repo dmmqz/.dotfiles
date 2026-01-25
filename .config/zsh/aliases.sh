@@ -13,6 +13,10 @@ alias vim=nvim
 
 alias pass=keepassxc-cli
 
+# Git aliases
+alias gdn="git diff --name-only"
+alias gdsn="git diff --staged --name-only"
+
 wssh() {
     until ssh "$@"; do
         sleep 5
