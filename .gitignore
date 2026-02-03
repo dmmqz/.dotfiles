@@ -10,5 +10,6 @@
 # Alacritty
 .config/alacritty/extra.toml
 
-# API keys, etc.
+# Zsh
 .config/zsh/secret.sh
+.config/zsh/android-studio.sh
