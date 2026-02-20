@@ -11,5 +11,4 @@
 .config/alacritty/extra.toml
 
 # Zsh
-.config/zsh/secret.sh
 .config/zsh/android-studio.sh
