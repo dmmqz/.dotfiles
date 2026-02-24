@@ -8,7 +8,9 @@ require("mason-tool-installer").setup {
         "lua-language-server",
         "python-lsp-server",
         "ruff",
-        "rust-analyzer"
+        "rust-analyzer",
+        "bash-language-server",
+        "shfmt",
     },
     auto_update = true,
 }

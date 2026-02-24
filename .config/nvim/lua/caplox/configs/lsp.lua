@@ -4,6 +4,7 @@ vim.lsp.enable({
     "clangd",
     "ruff",
     "rust_analyzer",
+    "bashls",
 })
 
 vim.lsp.config["luals"] = {
@@ -67,4 +68,17 @@ vim.lsp.config["rust_analyzer"] = {
     cmd = { "rust-analyzer" },
     filetypes = { "rust" },
     root_markers = { "Cargo.toml" }
+}
+vim.lsp.config["bashls"] = {
+    cmd = { "bash-language-server", "start" },
+    filetypes = { "bash", "sh", "zsh" },
+    -- Google style guide
+    settings = {
+        bashIde = {
+            shfmt = {
+                caseIndent = true,
+                ignoreEditorconfig = true,
+            },
+        },
+    },
 }
