@@ -94,6 +94,7 @@ require("lazy").setup({
 
     -- Formatting (uses LSP as fallback)
     { "stevearc/conform.nvim" },
+    { "mfussenegger/nvim-lint" },
 
     -- Diagnostics
     {
