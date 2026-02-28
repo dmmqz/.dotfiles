@@ -3,15 +3,13 @@ separator_block_width=15
 markup=none
 
 [mediaplayer]
-command=perl $SCRIPT_DIR/mediaplayer
+command=python3 $SCRIPT_DIR/mediaplayer
 instance=cmus
 interval=5
-signal=10
 
 [volume-custom]
 command=bash $SCRIPT_DIR/volume-custom
 interval=1
-signal=10
 
 [weather]
 command=bash $SCRIPT_DIR/weather
