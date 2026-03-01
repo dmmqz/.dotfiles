@@ -34,33 +34,8 @@ def playerctl_args() -> list[str]:
     return []
 
 
-def handle_cmus_buttons() -> None:
-    if BLOCK_BUTTON == "1":
-        run_command(["cmus-remote", "--prev"])
-    elif BLOCK_BUTTON == "2":
-        run_command(["cmus-remote", "--pause"])
-    elif BLOCK_BUTTON == "3":
-        run_command(["cmus-remote", "--next"])
-
-
-def handle_playerctl_buttons() -> None:
-    args = playerctl_args()
-    if BLOCK_BUTTON == "1":
-        run_command(["playerctl", *args, "previous"])
-    elif BLOCK_BUTTON == "2":
-        run_command(["playerctl", *args, "play-pause"])
-    elif BLOCK_BUTTON == "3":
-        run_command(["playerctl", *args, "next"])
-    elif BLOCK_BUTTON == "4":
-        run_command(["playerctl", *args, "volume", "0.01+"])
-    elif BLOCK_BUTTON == "5":
-        run_command(["playerctl", *args, "volume", "0.01-"])
-
-
 def cmus_output() -> str | None:
-    handle_cmus_buttons()
-
-    cmus = run_command(["cmus-remote", "--query"])
+    cmus = run_command(["cmus-remote", "-Q"])
     if cmus.returncode != 0:
         return None
 
@@ -88,7 +63,6 @@ def cmus_output() -> str | None:
 
 
 def playerctl_output() -> str | None:
-    handle_playerctl_buttons()
     args = playerctl_args()
 
     artist_result = run_command(
