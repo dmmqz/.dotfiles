@@ -1,0 +1,6 @@
+require("configs.lsp")
+require("configs.mason")
+require("configs.whichkey")
+require("configs.luasnip")
+require("configs.conform")
+require("configs.lint")

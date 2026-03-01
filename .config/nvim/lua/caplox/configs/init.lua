@@ -1,6 +1,0 @@
-require("caplox.configs.lsp")
-require("caplox.configs.mason")
-require("caplox.configs.whichkey")
-require("caplox.configs.luasnip")
-require("caplox.configs.conform")
-require("caplox.configs.lint")
