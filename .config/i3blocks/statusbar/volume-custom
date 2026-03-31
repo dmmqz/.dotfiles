@@ -1,12 +1,11 @@
 #!/bin/bash
 
-# Capture volume and state (on/off)
-volume=$(amixer sget Master | awk -F'[][]' '/Left:/ { print $2 }')
-state=$(amixer sget Master | awk -F'[][]' '/Left:/ { print $4; exit }')
+sink=$(pactl get-default-sink)
+volume=$(pactl get-sink-volume "$sink" | awk '{print $5; exit}')
+mute=$(pactl get-sink-mute "$sink" | awk '{print $2}')
 
-# Only show the state if it's off
-if [ "$state" == "off" ]; then
-    echo "$volume ($state)"
+if [ "$mute" = "yes" ]; then
+    echo "$volume (off)"
 else
     echo "$volume"
 fi
