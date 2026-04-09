@@ -16,6 +16,10 @@ vim.opt.signcolumn = 'yes'
 -- Enable clipboard
 vim.cmd [[set clipboard+=unnamedplus]]
 
+-- Which-key timeout
+vim.o.timeout = true
+vim.o.timeoutlen = 300
+
 -- Aliases
 vim.filetype.add({
     extension = {

@@ -1,195 +1,111 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system({
-        "git",
-        "clone",
-        "--filter=blob:none",
-        "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable", -- latest stable release
-        lazypath,
-    })
-end
-vim.opt.rtp:prepend(lazypath)
+local gh = function(x) return 'https://github.com/' .. x end
 
-require("lazy").setup({
+vim.pack.add({
+    -- Dependencies first
+    gh('nvim-lua/plenary.nvim'),
+    gh('rafamadriz/friendly-snippets'),
+    gh('echasnovski/mini.icons'),
+    gh('nvim-tree/nvim-web-devicons'),
+
     -- Telescope
-    {
-        "nvim-telescope/telescope.nvim",
-        dependencies = { "nvim-lua/plenary.nvim" },
-        config = function()
-            require("telescope").setup({
-                defaults = {
-                    -- Flip C-c and ESC bindings
-                    mappings = {
-                        i = {
-                            ["<C-c>"] = false,
-                            ["<ESC>"] = require('telescope.actions').close,
-                        },
-                        n = {
-                            ["<C-c>"] = require('telescope.actions').close,
-                        }
-                    }
-                }
-            })
-        end,
-    },
+    gh('nvim-telescope/telescope.nvim'),
 
-
-    -- Tokyonight theme
-    {
-        "folke/tokyonight.nvim",
-        lazy = false,
-        priority = 1000,
-        config = function()
-            vim.cmd([[colorscheme tokyonight-storm]])
-        end,
-    },
+    -- Colorscheme
+    gh('folke/tokyonight.nvim'),
 
     -- Treesitter
-    {
-        "nvim-treesitter/nvim-treesitter",
-        lazy = false,
-        config = function()
-            require("nvim-treesitter.configs").setup({
-                highlight = {
-                    enable = true,
-                },
-                ensure_installed = {
-                    "python",
-                    "cpp",
-                    "lua",
-                },
-                ignore_install = {
-                    "latex",
-                },
-                auto_install = true,
-                additional_vim_regex_highlighting = false,
-            })
-        end,
-    },
+    gh('nvim-treesitter/nvim-treesitter'),
 
     -- Mason
-    { "williamboman/mason.nvim", },
-    { "WhoIsSethDaniel/mason-tool-installer.nvim" },
+    gh('williamboman/mason.nvim'),
+    gh('WhoIsSethDaniel/mason-tool-installer.nvim'),
 
     -- Completion
-    {
-        "saghen/blink.cmp",
-        dependencies = { "rafamadriz/friendly-snippets" },
-        version = "1.*",
-        opts = {
-            keymap = {
-                preset = "none",
-                ["<C-e>"] = { "hide" },
-                ["<CR>"] = { "accept", "fallback" },
-                ["<C-k>"] = { "select_prev", "fallback_to_mappings" },
-                ["<C-j>"] = { "show", "select_next", "fallback_to_mappings" },
-            },
-            completion = {
-                menu = { auto_show = false },
-                documentation = { auto_show = true }
-            },
-        },
-    },
+    { src = gh('saghen/blink.cmp'), version = vim.version.range('1.0') },
 
-    -- Formatting (uses LSP as fallback)
-    { "stevearc/conform.nvim" },
-    { "mfussenegger/nvim-lint" },
+    -- Formatting / Linting
+    gh('stevearc/conform.nvim'),
+    gh('mfussenegger/nvim-lint'),
 
     -- Diagnostics
-    {
-        "folke/trouble.nvim",
-        opts = {},
-        cmd = "Trouble",
-        keys = {
-            {
-                " xX",
-                "<cmd>Trouble diagnostics toggle<cr>",
-                desc = "Diagnostics (Trouble)",
-            },
-            {
-                " xx",
-                "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-                desc = "Buffer Diagnostics (Trouble)",
-            },
-            {
-                " xs",
-                "<cmd>Trouble symbols toggle focus=false<cr>",
-                desc = "Symbols (Trouble)",
-            },
-            {
-                " xl",
-                "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-                desc = "LSP Definitions / references / ... (Trouble)",
-            },
-            {
-                " xL",
-                "<cmd>Trouble loclist toggle<cr>",
-                desc = "Location List (Trouble)",
-            },
-            {
-                " xQ",
-                "<cmd>Trouble qflist toggle<cr>",
-                desc = "Quickfix List (Trouble)",
-            },
-        },
-    },
+    gh('folke/trouble.nvim'),
 
     -- Snippets
-    {
-        "L3MON4D3/LuaSnip",
-        dependencies = { "rafamadriz/friendly-snippets" },
-    },
+    gh('L3MON4D3/LuaSnip'),
 
-    -- Vim fugitive and Gitsigns for git
-    { "tpope/vim-fugitive" },
-    {
-        "lewis6991/gitsigns.nvim",
-        opts = {},
-    },
+    -- Git
+    gh('tpope/vim-fugitive'),
+    gh('lewis6991/gitsigns.nvim'),
 
-    -- Commentary for easier commenting
-    { "tpope/vim-commentary", },
+    -- Utilities
+    gh('tpope/vim-commentary'),
+    gh('windwp/nvim-autopairs'),
 
-    -- Autopair braces etc
-    {
-        "windwp/nvim-autopairs",
-        event = "InsertEnter",
-        opts = {},
-    },
+    -- LaTeX
+    gh('lervag/vimtex'),
 
-    -- LaTeX compiler
-    {
-        "lervag/vimtex",
-        ft = { "tex", "plaintex" },
-        config = function()
-            vim.g.vimtex_view_general_viewer = "zathura"
-            vim.g.vimtex_quickfix_open_on_warning = false
-        end,
-    },
+    -- File explorer
+    gh('stevearc/oil.nvim'),
 
-    -- Oil, a netrw like file explorer
-    {
-        "stevearc/oil.nvim",
-        opts = {
-            default_file_explorer = true,
-            keymaps = {
+    -- Which-key
+    gh('folke/which-key.nvim'),
+})
+
+-- Telescope
+require("telescope").setup({
+    defaults = {
+        mappings = {
+            i = {
                 ["<C-c>"] = false,
-            }
+                ["<ESC>"] = require("telescope.actions").close,
+            },
+            n = { ["<C-c>"] = require("telescope.actions").close },
         },
     },
+})
 
-    -- Whichkey
-    {
-        "folke/which-key.nvim",
-        dependencies = {
-            "nvim-mini/mini.icons",
-            "nvim-tree/nvim-web-devicons",
-        },
-        event = "VeryLazy",
-        init = function()
-            vim.o.timeout = true
-            vim.o.timeoutlen = 300
-        end,
+-- Colorscheme
+vim.cmd([[colorscheme tokyonight-storm]])
+
+-- Treesitter
+require("nvim-treesitter.config").setup({
+    highlight = { enable = true },
+    ensure_installed = { "python", "cpp", "lua" },
+    ignore_install = { "latex" },
+    auto_install = true,
+    additional_vim_regex_highlighting = false,
+})
+
+-- Completion
+require("blink.cmp").setup({
+    keymap = {
+        preset = "none",
+        ["<C-e>"] = { "hide" },
+        ["<CR>"] = { "accept", "fallback" },
+        ["<C-k>"] = { "select_prev", "fallback_to_mappings" },
+        ["<C-j>"] = { "show", "select_next", "fallback_to_mappings" },
     },
+    completion = {
+        menu = { auto_show = false },
+        documentation = { auto_show = true },
+    },
+})
+
+-- Trouble
+require("trouble").setup({})
+
+-- Gitsigns
+require("gitsigns").setup()
+
+-- Autopairs
+require("nvim-autopairs").setup()
+
+-- VimTeX
+vim.g.vimtex_view_general_viewer = "zathura"
+vim.g.vimtex_quickfix_open_on_warning = false
+
+-- Oil
+require("oil").setup({
+    default_file_explorer = true,
+    keymaps = { ["<C-c>"] = false },
 })
