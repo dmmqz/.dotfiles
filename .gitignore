@@ -5,6 +5,7 @@ __pycache__
 
 # Neovim
 .config/nvim/lazy-lock.json
+.config/nvim/nvim-pack-lock.json
 *.spl
 *.sug
 *.add
