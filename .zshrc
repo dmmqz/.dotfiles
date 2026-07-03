@@ -2,6 +2,7 @@
 export GTK_THEME=Adwaita-dark
 export MANPAGER="nvim +Man!"
 export EDITOR="nvim"
+export PATH="$HOME/.local/bin:$PATH"
 xdg-settings set default-web-browser librewolf.desktop
 
 # Explicitly import first so custom keybindings are not overwritten

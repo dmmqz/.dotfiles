@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+# Get connected displays
+xrandr --auto
+connected=$(xrandr | grep " connected")
+
+# Find internal (usually eDP or LVDS)
+internal=$(echo "$connected" | grep -E "eDP|LVDS" | awk '{print $1}' | head -n1)
+
+# Find external (anything else connected)
+external=$(echo "$connected" | grep -v "$internal" | awk '{print $1}' | head -n1)
+
+if [[ -z "$internal" || -z "$external" ]]; then
+  echo "Could not detect both internal and external displays."
+  exit 1
+fi
+
+echo "Internal: $internal"
+echo "External: $external"
+
+# Get resolutions for each
+get_modes() {
+  xrandr | awk -v output="$1" '
+        $1 == output {found=1; next}
+        found && /^[[:space:]]+[0-9]+x[0-9]+/ {print $1}
+        found && !/^[[:space:]]+/ {exit}
+    '
+}
+
+modes_internal=$(get_modes "$internal")
+modes_external=$(get_modes "$external")
+
+# Find common resolutions
+common=$(comm -12 \
+  <(echo "$modes_internal" | sort -u) \
+  <(echo "$modes_external" | sort -u))
+
+if [[ -z "$common" ]]; then
+  echo "No common resolutions found."
+  exit 1
+fi
+
+# Pick the highest (by pixel count)
+best=$(echo "$common" | awk -F'x' '{print $0, $1*$2}' | sort -k2 -nr | head -n1 | awk '{print $1}')
+
+echo "Using resolution: $best"
+
+# Apply mirror
+xrandr --output "$external" --mode "$best" --same-as "$internal" \
+  --output "$internal" --mode "$best"
