@@ -1,5 +1,7 @@
 # Arch Linux installation script
+
 ## Install Arch
+
 Before you can run this script, you will need to install Arch Linux. Run `archinstall` and select the following options:
 
 | Section                        | Option                                                                         |
