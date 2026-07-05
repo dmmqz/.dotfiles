@@ -79,12 +79,34 @@ require("telescope").setup({
 vim.cmd([[colorscheme tokyonight-storm]])
 
 -- Treesitter
-require("nvim-treesitter.config").setup({
-    highlight = { enable = true },
-    ensure_installed = { "python", "cpp", "lua" },
-    ignore_install = { "latex" },
-    auto_install = true,
-    additional_vim_regex_highlighting = false,
+require("nvim-treesitter.config").setup({})
+
+-- Ensure these parsers are installed on startup
+require("nvim-treesitter").install({ "python", "cpp", "lua" })
+
+-- Automatically install missing parsers + start highlighting per buffer
+local function install_parser_and_enable(args)
+    local lang = vim.treesitter.language.get_lang(args.match)
+    if not lang then return end
+
+    local available = require("nvim-treesitter.config").get_available()
+    if not vim.tbl_contains(available, lang) then return end
+
+    local ok, loaded = pcall(vim.treesitter.language.add, lang)
+    if not (ok and loaded) then
+        local install_ok, task = pcall(require("nvim-treesitter").install, { lang }, { summary = false })
+        if install_ok and task then
+            pcall(function() task:wait(60000) end)
+        end
+    end
+
+    pcall(vim.treesitter.start, args.buf, lang)
+end
+
+vim.api.nvim_create_autocmd("FileType", {
+    group = vim.api.nvim_create_augroup("ui.treesitter", { clear = true }),
+    pattern = "*",
+    callback = install_parser_and_enable,
 })
 
 -- Completion
