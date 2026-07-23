@@ -20,6 +20,10 @@ wk.add({
     { "<Leader>gp", desc = "Pull" },
     { "<Leader>gu", desc = "Unstage All" },
 
+    { "<Leader>gh", group = "Hunk", icon = "" },
+    { "<Leader>ghs", desc = "Toggle Staging Hunk" },
+    { "<Leader>ghr", desc = "Reset Hunk" },
+
     { "<Leader>l", group = "LaTeX", icon = "" },
     { "<Leader>le", desc = "Errors" },
     { "<Leader>ll", desc = "Compile" },

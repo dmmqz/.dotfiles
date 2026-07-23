@@ -27,6 +27,10 @@ vim.keymap.set("n", "<leader>go", ":Git<CR>", { silent = true })
 vim.keymap.set("n", "<leader>gp", ":Git pull<CR>", { silent = true })
 vim.keymap.set("n", "<leader>gu", ":Git reset<CR>", {})
 
+-- Git (gitsigns hunks)
+vim.keymap.set("n", "<leader>ghs", ":Gitsigns stage_hunk<CR>", { silent = true })
+vim.keymap.set("n", "<leader>ghr", ":Gitsigns reset_hunk<CR>", { silent = true })
+
 -- Clipboard
 vim.keymap.set("n", "<leader>y", '"+y')
 vim.keymap.set("n", "<leader>p", '"+p')
