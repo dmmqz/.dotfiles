@@ -18,7 +18,14 @@ vim.keymap.set("n", "<leader>le", ":VimtexErrors<CR>", { silent = true })
 vim.keymap.set("n", "<leader>lt", ":VimtexTocToggle<CR>", { silent = true })
 
 -- Git (fugitive)
-vim.keymap.set("n", "<leader>ga", ":Git add ", {})
+vim.keymap.set("n", "<leader>gaa", ":Git add --all<CR>", { silent = true })
+vim.keymap.set("n", "<leader>gaf", function()
+    if vim.fn.expand("%") == "" then
+        vim.notify("No file in this buffer", vim.log.levels.WARN)
+        return
+    end
+    vim.cmd("Git add " .. vim.fn.fnameescape(vim.fn.expand("%:p")))
+end, { silent = true })
 vim.keymap.set("n", "<leader>gb", ":Git blame<CR>", { silent = true })
 vim.keymap.set("n", "<leader>gc", ":Git commit -m ", {})
 vim.keymap.set("n", "<leader>gd", ":Git diff<CR>", { silent = true })

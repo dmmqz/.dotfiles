@@ -11,7 +11,6 @@ wk.add({
     { "<Leader>fg", desc = "Live grep" },
 
     { "<Leader>g", group = "Git", icon = "" },
-    { "<Leader>ga", desc = "Add" },
     { "<Leader>gb", desc = "Blame" },
     { "<Leader>gc", desc = "Commit" },
     { "<Leader>gd", desc = "Diff" },
@@ -19,6 +18,10 @@ wk.add({
     { "<Leader>go", desc = "Overview" },
     { "<Leader>gp", desc = "Pull" },
     { "<Leader>gu", desc = "Unstage All" },
+
+    { "<Leader>ga", group = "Add", icon = "" },
+    { "<Leader>gaa", desc = "Add All" },
+    { "<Leader>gaf", desc = "Add Current File" },
 
     { "<Leader>gh", group = "Hunk", icon = "" },
     { "<Leader>ghs", desc = "Toggle Staging Hunk" },
