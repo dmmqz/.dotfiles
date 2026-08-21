@@ -2,4 +2,4 @@
 
 yay -S --noconfirm --needed \
     playerctl brightnessctl syncthing \
-    ttf-firacode-nerd
+    ttf-firacode-nerd noto-fonts-emoji
