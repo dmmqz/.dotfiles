@@ -60,6 +60,9 @@ vim.pack.add({
 
     -- Which-key
     gh('folke/which-key.nvim'),
+
+    -- Jupyter Notebook
+    gh('ajbucci/ipynb.nvim'),
 })
 
 -- Telescope
@@ -142,3 +145,6 @@ require("oil").setup({
     default_file_explorer = true,
     keymaps = { ["<C-c>"] = false },
 })
+
+-- ipynb.nvim
+require("ipynb").setup()
